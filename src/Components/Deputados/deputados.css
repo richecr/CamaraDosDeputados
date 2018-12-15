@@ -1,0 +1,42 @@
+.deputados-lista {
+    max-width: 300px;
+    margin: 20px auto 0;
+    padding: 0px 20px;
+}
+
+.deputados-lista article {
+    background: #fff;
+    border: 1px solid #DDD;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.deputados-lista article strong {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 16px;
+    color: #999;
+    margin-top: 5px;
+}
+
+.deputados-lista article img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto
+}
+
+.deputados-lista article a {
+    height: 42px;
+    border-radius: 5px;
+    border: 2px solid #da552f;
+    background: none;
+    margin-top: 10px;
+    color: #da552f;
+    font-weight: bold;
+    font-size: 16px;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.2s;
+}
