@@ -10,7 +10,7 @@ export default class Deputado extends React.Component {
     async componentDidMount() {
         const { id } = this.props.match.params;
         const response = await axios.get('https://dadosabertos.camara.leg.br/api/v2/deputados/'+id);
-        const { dados, ...resto } = response.data;
+        const { dados } = response.data;
         
         this.setState({ deputado : dados });
     }

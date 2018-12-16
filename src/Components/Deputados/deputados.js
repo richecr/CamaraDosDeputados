@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/alt-text */
 import React, { Component } from 'react';
 import axios from "axios";
 import { Link } from "react-router-dom";
@@ -25,7 +26,7 @@ export default class Deputados extends Component {
     prevPage = () => {
         const { page } = this.state;
 
-        if (page == 1) return;
+        if (page === 1) return;
         
         const pageNumber = page - 1;
         this.acessaApi(pageNumber);
@@ -34,7 +35,7 @@ export default class Deputados extends Component {
     nextPage = () => {
         const { page } = this.state;
 
-        if (page == 6) return;
+        if (page === 6) return;
 
         const pageNumber = page + 1;
         this.acessaApi(pageNumber);
@@ -55,8 +56,8 @@ export default class Deputados extends Component {
                     </article>
                 )) }
                 <div>
-                    <button disabled={ page == 1 } onClick={ this.prevPage } >Anterior</button>
-                    <button disabled={ page == 6 } onClick={ this.nextPage } >Próxima</button>
+                    <button disabled={ page === 1 } onClick={ this.prevPage } >Anterior</button>
+                    <button disabled={ page === 6 } onClick={ this.nextPage } >Próxima</button>
                 </div>
             </div>
         )
