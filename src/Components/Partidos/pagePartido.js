@@ -51,7 +51,7 @@ export default class Partido extends Component {
                 <br></br>
 
                 <div className="lider">
-                    <h1>Líder</h1>
+                    <h1 id="title">Líder</h1>
                     <article key={ lider.nome }>
                         <strong>Nome: { lider.nome }</strong>
                         <br></br>

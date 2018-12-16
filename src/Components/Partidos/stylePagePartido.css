@@ -16,6 +16,10 @@
     padding: 20px;
 }
 
+.status h1 {
+    color: #da552f;
+}
+
 .status article {
     margin-left: 15px;
     border: 1px solid #ddd;
@@ -33,6 +37,10 @@
 .lider {
     max-width: 300px;
     padding-left: 20px;
+}
+
+.lider h1 {
+    color: #da552f;
 }
 
 .lider article {
