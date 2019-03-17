@@ -40,3 +40,23 @@
     align-items: center;
     transition: all 0.2s;
 }
+
+.deputados-lista div {
+    display: flex;
+    justify-content: space-between;
+}
+
+.deputados-lista div button {
+    border-radius: 5px;
+    border: 2px solid #da552f;
+    background: none;
+    margin-top: 10px;
+    color: #da552f;
+    font-weight: bold;
+    font-size: 16px;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.2s;
+}
