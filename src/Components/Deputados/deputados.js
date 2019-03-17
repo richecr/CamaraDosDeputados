@@ -17,7 +17,7 @@ export default class Deputados extends Component {
     }
 
     async acessaApi(page = 1) {
-        const response = await axios.get('https://dadosabertos.camara.leg.br/api/v2/deputados?ordem=ASC&ordenarPor=nome&pagina=' + page + '&itens=100');
+        const response = await axios.get('https://dadosabertos.camara.leg.br/api/v2/deputados?ordem=ASC&ordenarPor=nome&pagina=' + page + '&itens=20');
         const { dados } = response.data;
         
         this.setState({ deputados : dados, page : page } );
@@ -35,7 +35,7 @@ export default class Deputados extends Component {
     nextPage = () => {
         const { page } = this.state;
 
-        if (page === 6) return;
+        if (page === 26) return;
 
         const pageNumber = page + 1;
         this.acessaApi(pageNumber);
@@ -52,12 +52,12 @@ export default class Deputados extends Component {
                         <p></p>
                         <img src={ deputado.urlFoto }></img>
                         <p></p>
-                        <Link to={"/deputado/"+deputado.id}>Página</Link>
+                        <Link to={"/deputado/"+deputado.id}>Ver Detalhes</Link>
                     </article>
                 )) }
                 <div>
                     <button disabled={ page === 1 } onClick={ this.prevPage } >Anterior</button>
-                    <button disabled={ page === 6 } onClick={ this.nextPage } >Próxima</button>
+                    <button disabled={ page === 26 } onClick={ this.nextPage } >Próxima</button>
                 </div>
             </div>
         )
