@@ -29,4 +29,4 @@ Fique tranquilo :relaxed: para enviar sugestões, fazer alterações e procurar 
 
 ## Aprender mais sobre React para então contribuir para o projeto
 
-Você pode aprender mais no [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Você pode aprender mais sobre [React](https://pt-br.reactjs.org/docs/getting-started.html#try-react).
