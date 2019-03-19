@@ -1,7 +1,5 @@
 # Câmara dos Deputados
-
-
-Aplicação com propósito de mostrar o que esta acontecendo na Câmara dos Deputados.
+> Aplicação com propósito de mostrar o que esta acontecendo na Câmara dos Deputados.
 
 ## Executar localmente :smirk:
 
