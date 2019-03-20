@@ -50,7 +50,7 @@ export default class Deputados extends Component {
                     <article key={ deputado.id }>
                         <strong>{ deputado.nome } - { deputado.siglaPartido }</strong>
                         <p></p>
-                        <img src={ deputado.urlFoto }></img>
+                        <img width="114" height="152" src={ deputado.urlFoto }></img>
                         <p></p>
                         <Link to={"/deputado/"+deputado.id}>Ver Detalhes</Link>
                     </article>
