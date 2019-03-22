@@ -1,11 +1,11 @@
-**Descrição da feature:**
-<!-- Aqui você descreve o que irá mudar com sua feature. -->
+**Descrição da feature:** 
+Aqui você descreve o que irá mudar com sua feature.
 
 **Necessidade:**
-<!-- Aqui você descreve o porquê de sua feature é necessária. -->
+Aqui você descreve o porquê de sua feature é necessária.
 
 **Implementação:**
-<!-- Aqui você pode dar ideias de implementações para sua feature. -->
+Aqui você pode dar ideias de implementações para sua feature.
 
 **Imagens:**
-<!-- Para ajudar o entendimento de sua feature(opcional) -->
+Para ajudar o entendimento de sua feature(opcional).
