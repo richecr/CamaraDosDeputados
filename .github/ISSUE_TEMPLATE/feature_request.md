@@ -1,11 +1,20 @@
-**Descrição da feature:** 
-Aqui você descreve o que irá mudar com sua feature.
+---
+name: Feature request
+about: Suggest an idea for this project
+title: ''
+labels: ''
+assignees: ''
 
-**Necessidade:**
-Aqui você descreve o porquê de sua feature é necessária.
+---
 
-**Implementação:**
-Aqui você pode dar ideias de implementações para sua feature.
+**Is your feature request related to a problem? Please describe.**
+A clear and concise description of what the problem is. Ex. I'm always frustrated when [...]
 
-**Imagens:**
-Para ajudar o entendimento de sua feature(opcional).
+**Describe the solution you'd like**
+A clear and concise description of what you want to happen.
+
+**Describe alternatives you've considered**
+A clear and concise description of any alternative solutions or features you've considered.
+
+**Additional context**
+Add any other context or screenshots about the feature request here.
