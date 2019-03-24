@@ -18,7 +18,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
-  "homepage": "https://rickecr.github.io/AppCamaraDosDeputados",
+  "homepage": "https://Rickecr.github.io/AppCamaraDosDeputados",
   "eslintConfig": {
     "extends": "react-app"
   },
