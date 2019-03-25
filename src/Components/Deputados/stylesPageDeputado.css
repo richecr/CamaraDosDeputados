@@ -1,0 +1,48 @@
+body {
+    background-color: rgb(239, 241, 241);
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.deputado {
+    display: flex;
+    flex-direction: column;
+    margin-left: 15px;
+}
+
+.titulo {
+    font-size: 16px;
+}
+
+.info-deputado {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+}
+
+.info-deputado section:hover {
+    opacity: 0.7;
+    background: #53a7ea;
+    -webkit-transform: scale(1.1);
+    -ms-transform: scale(.1);
+    transform: scale(1.1);
+}
+
+.info-deputado section {
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    width: 450px;
+    border: 2px solid rgb(18, 222, 236);
+    border-radius: 10px;
+}
+
+.info-deputado section h1 {
+    font-size: 20px;
+    text-align: center;
+}
+
+.info-deputado section h3 {
+    font-size: 14px;
+}
