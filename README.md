@@ -5,7 +5,7 @@
 
 O site é feito em [React](https://reactjs.org/) e nossos dados são consumidos da [API Dados Abertos](dadosabertos).
 
-Para executar a aplicação para contribuição é necessário:
+Para executar a aplicação localmente e contribuir, é necessário:
 
 - NodeJS
 
@@ -22,7 +22,7 @@ A aplicação estará disponivel em: http://localhost:3000/
 
 Caso você deseje adicionar/atualizar/criar issues bacanas e contribuir para o projeto, leia o [CONTRIBUTING.md](CONTRIBUTING.md).
 
-Fique tranquilo :relaxed: para enviar sugestões, fazer alterações e procurar erros para nos passar criando uma issue e até mesmo corrigindo e mandando um PR.
+Fique tranquilo para enviar sugestões, fazer alterações e procurar erros para nos passar criando uma issue e até mesmo corrigindo e mandando um PR. :relaxed:
 
 
 ## Aprender mais sobre React para então contribuir para o projeto
