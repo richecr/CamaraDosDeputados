@@ -1,6 +1,6 @@
 # Contributing
 
-Pode contribuir a vontade, você será sempre bem-vindo. Mas aqui tem algumas regras para ser seguidas.
+> Pode contribuir a vontade, você será sempre bem-vindo. Mas aqui tem algumas regras para ser seguidas.
 
 ## Adicionar/Atualizar funcionalidades
 
@@ -15,6 +15,7 @@ Você olhou a API e achou uma funcionalidade que deveria ser adicionada no proje
 
 Na página do [projeto](https://github.com/Rickecr/AppCamaraDosDeputados), você pode selecionar `Issues` e na página irá aparecer `new issue`, então é só selecionar e seguir os seguintes passos:
 
+- Selecionar o tipo da sua issue: Bug ou Feature.
 - Dar um bom nome a sua issue.
 - Detalhar bem sobre qual objetivo da sua issue.
 - Imagens caso possível.
@@ -27,10 +28,10 @@ Todos os arquivos estão na pasta `src`, os componentes em: `src/Components/` de
 
 ### Clonar o repositório
 
-Na página inicial do [repositório](https://github.com/Rickecr/AppCamaraDosDeputados) tem um botão `fork`. Ao clicar é só esperar concluir. E então ele irá criar o repositório na sua conta. E agora é só clonar em sua máquina, assim:
+Na página inicial do [repositório](https://github.com/Rickecr/AppCamaraDosDeputados) tem um botão `Fork`. Ao clicar é só esperar concluir. E então ele irá criar o repositório na sua conta. E agora é só clonar em sua máquina, assim:
 
 ```sh
-git clone https://github.com/<nome_de_usuario>/AppCamaraDosDeputados
+git clone https://github.com/<nome_de_usuario>/CamaraDosDeputados
 ```
 
 Ao concluir, você terá o repositório em seu computador e então é só abrir em seu editor preferido e fazer suas modificações.
