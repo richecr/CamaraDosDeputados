@@ -56,7 +56,7 @@ export default class Deputado extends React.Component {
                         <h3>Condição Eleitoral: { deputado.ultimoStatus.condicaoEleitoral }</h3>
                         { deputado.ultimoStatus.situacao && <h3>situação: { deputado.ultimoStatus.situacao }</h3> }
                     </section>
-                    
+
                 </div>
                 }
             </div>

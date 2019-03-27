@@ -16,7 +16,22 @@ body {
 .info-deputado {
     display: flex;
     flex-flow: row wrap;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.info-deputado section {
+    display: flex;
+    flex-direction: column;
     justify-content: space-around;
+    margin-right: 20px;
+    padding: 15px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    width: 350px;
+    height: 350px;
+    border: 2px solid rgb(18, 222, 236);
+    border-radius: 10px;
 }
 
 .info-deputado section:hover {
@@ -25,17 +40,6 @@ body {
     -webkit-transform: scale(1.1);
     -ms-transform: scale(.1);
     transform: scale(1.1);
-}
-
-.info-deputado section {
-    display: flex;
-    flex-direction: column;
-    padding: 15px;
-    margin-bottom: 10px;
-    margin-top: 10px;
-    width: 450px;
-    border: 2px solid rgb(18, 222, 236);
-    border-radius: 10px;
 }
 
 .info-deputado section h1 {
