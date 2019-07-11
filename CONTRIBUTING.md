@@ -62,7 +62,7 @@ Calma, agora que entra o `Pull Request` ou `PR`
 
 Na página do seu fork irá aparecer uma mensagem em amarelo solicitando que você faça um Pull Request para o repositório original. Ao clicar irá abrir uma página para você preencher as informações sobre sua PR.
 
-- Referencie a issue em que você está trabalhando usando #<numero_da_issue>
+- Referencie a issue em que você está trabalhando usando `#<numero_da_issue>`
 
 - Descreva suas modificações
 
