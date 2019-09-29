@@ -28,7 +28,7 @@ Fique tranquilo para enviar sugestões, fazer alterações e/ou procurar erros p
 
 ## Não sabe ReactJS ? :disappointed_relieved:
 
-Não tem problema, temos lugar para todo mundo. Você não precisa codificar pra ajudar, pode contribuir dando ideias, achando problemas e dando sugestões e etc.
+Não tem problema, temos lugar para todo mundo. Você não precisa codificar pra ajudar, pode contribuir com ideias, achando problemas, contribuindo com a documentação e/ou dando sugestões e etc.
 
 Mas se você quiser aprender ReactJS e dar seus primeiros passos por aqui, seja muito bem vindo(a).
 
