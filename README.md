@@ -3,7 +3,7 @@
 
 ## Executar localmente :smirk:
 
-O site é feito em [React](https://reactjs.org/) e consumimos os dados da [API dos Dados Abertos](dadosabertos).
+A aplicação estar sendo desenvolvida em [ReactJS](https://reactjs.org/) e consumimos os dados da [API dos Dados Abertos](dadosabertos).
 
 Para executar a aplicação localmente e contribuir, é necessário:
 
