@@ -2,6 +2,10 @@
   "name": "deputados",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": "10.x",
+    "npm": "6.x"
+  },
   "dependencies": {
     "axios": "^0.18.1",
     "react": "^16.6.3",
