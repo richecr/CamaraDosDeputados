@@ -3,11 +3,12 @@
 
 ## Executar localmente :smirk:
 
-O site é feito em [React](https://reactjs.org/) e nossos dados são consumidos da [API Dados Abertos](dadosabertos).
+O site é feito em [React](https://reactjs.org/) e consumimos os dados da [API dos Dados Abertos](dadosabertos).
 
 Para executar a aplicação localmente e contribuir, é necessário:
 
 - NodeJS
+- ReactJS
 
 E então, rodar os seguintes comandos:
 
@@ -22,9 +23,13 @@ A aplicação estará disponivel em: http://localhost:3000/
 
 Caso você deseje adicionar/atualizar/criar issues bacanas e contribuir para o projeto, leia o [CONTRIBUTING.md](CONTRIBUTING.md).
 
-Fique tranquilo para enviar sugestões, fazer alterações e procurar erros para nos passar criando uma issue e até mesmo corrigindo e mandando um PR. :relaxed:
+Fique tranquilo para enviar sugestões, fazer alterações e/ou procurar erros para nos informar criando uma issue e até mesmo corrigindo e mandando um PR. :relaxed:
 
 
-## Aprender mais sobre React para então contribuir para o projeto
+## Não sabe ReactJS ? :disappointed_relieved:
+
+Não tem problema, temos lugar para todo mundo. Você não precisa codificar pra ajudar, pode contribuir dando ideias, achando problemas e dando sugestões e etc.
+
+Mas se você quiser aprender ReactJS e dar seus primeiros passos por aqui, seja muito bem vindo(a).
 
 Você pode aprender mais sobre [React](https://pt-br.reactjs.org/docs/getting-started.html#try-react).
