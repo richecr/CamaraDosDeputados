@@ -14,7 +14,6 @@ const Partido = (props) => {
         const { id } = props.match.params;
         const response = await axios.get("https://dadosabertos.camara.leg.br/api/v2/partidos/"+id);
         const { dados } = response.data;
-        console.log(1)
 
         setPartido(dados);
         setStatus(dados.status);
