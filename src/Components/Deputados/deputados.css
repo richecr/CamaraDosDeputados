@@ -41,6 +41,12 @@
     transition: all 0.2s;
 }
 
+.deputados-lista article a:hover{
+    background: #da552f;
+    border: 2px solid #DDD;
+    color: #DDD
+}
+
 .deputados-lista div {
     display: flex;
     justify-content: space-between;
@@ -60,4 +66,10 @@
     align-items: center;
     transition: all 0.2s;
     cursor: pointer;
+}
+
+.deputados-lista div button:hover{
+    background: #da552f;
+    border: 2px solid #DDD;
+    color: #DDD
 }
