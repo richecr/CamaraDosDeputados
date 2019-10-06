@@ -1,62 +1,54 @@
-import React, { Component } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 
 import "../Partidos/partidos.css";
 
-export default class Partidos extends Component {
+const Partidos = (props) => {
+  const [partidos, setPartidos] = useState([]);
+  const [page, setPage] = useState(1);
 
-    state = {
-        partidos : [],
-        page : 1
-    }
+  const fetchData = async (page) => {
+      const response = await axios.get("https://dadosabertos.camara.leg.br/api/v2/partidos?ordem=ASC&ordenarPor=nome&pagina=" + page + "&itens=20");
+      const { dados } = response.data;
 
-    async componentDidMount() {
-        await this.acessaApi();
-    }
+      setPartidos(dados);
+      setPage(page);
+  }
 
-    acessaApi = async (page = 1) => {
-        const response = await axios.get("https://dadosabertos.camara.leg.br/api/v2/partidos?ordem=ASC&ordenarPor=nome&pagina=" + page + "&itens=20");
-        const { dados } = response.data;
-        this.setState({ partidos : dados, page: page });
-    }
+  useEffect(() => {
+    fetchData(page)
+  }, [page]);
 
-    prevPage = () => {
-        const { page } = this.state;
+  const prevPage = () => {
+    if (page === 1) return;
 
-        if (page === 1) return;
+    const pageNumber = page - 1;
+    setPage(pageNumber);
+  }
 
-        const pageNumber = page - 1;
-        this.acessaApi(pageNumber);
-    }
+  const nextPage = () => {
+    if (page === 2) return;
 
-    nextPage = () => {
-        const { page } = this.state;
+    const pageNumber = page + 1;
+    setPage(pageNumber);
+  }
 
-        if (page === 2) return;
-
-        const pageNumber = page + 1;
-        this.acessaApi(pageNumber);
-    }
-
-    render() {
-        const { partidos, page } = this.state;
-
-        return (
-            <div className="partidos-lista">
-                { partidos.map(partido => (
-                    <article key={ partido.id } >
-                        <strong>{ partido.nome } - { partido.sigla }</strong>
-                        <br></br>
-                        <Link to={ "/partido/"+partido.id }>Ver Detalhes</Link>
-                    </article>
-                )) }
-                <div>
-                    <button disabled={ page === 1 } onClick={ this.prevPage } >Anterior</button>
-                    <button disabled={ page === 2 } onClick={ this.nextPage } >Próxima</button>
-                </div>
-            </div>
-        )
-    }
-
+  return (
+      <div className="partidos-lista">
+          { partidos.map(partido => (
+              <article key={ partido.id } >
+                  <strong>{ partido.nome } - { partido.sigla }</strong>
+                  <br></br>
+                  <Link to={ "/partido/"+partido.id }>Ver Detalhes</Link>
+              </article>
+          )) }
+          <div>
+              <button disabled={ page === 1 } onClick={ prevPage } >Anterior</button>
+              <button disabled={ page === 2 } onClick={ nextPage } >Próxima</button>
+          </div>
+      </div>
+  )
 }
+
+export default Partidos;
