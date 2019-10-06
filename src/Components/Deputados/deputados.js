@@ -20,9 +20,15 @@ const Deputados = () => {
         },
     );
 
+    const handleSubmit = (event) => {
+        event.preventDefault();
+
+        setParam('nome', name);
+    };
+
     return (
         <div className="deputados-lista">
-            <form className="search" onSubmit={() => setParam('nome', name)}>
+            <form className="search" onSubmit={handleSubmit}>
                 <input
                     placeholder="Buscar por nome"
                     value={name}
