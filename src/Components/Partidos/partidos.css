@@ -40,12 +40,12 @@
     color: #DDD
 }
 
-.partidos-lista div {
+.partidos-buttons {
     display: flex;
     justify-content: space-between;
 }
 
-.partidos-lista div button {
+.partidos-buttons button {
     border-radius: 5px;
     border: 2px solid #da552f;
     background: none;
@@ -61,8 +61,55 @@
     cursor: pointer;
 }
 
-.partidos-lista div button:hover{
+.partidos-buttons button:hover{
     background: #da552f;
     border: 2px solid #DDD;
-    color: #DDD
+    color: #DDD;
+    padding: 0px 20px; 
+}
+
+
+.partidos-ordenacao {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    max-width: 300px;
+    padding: 0px 20px; 
+}
+
+
+.partidos-ordenacao .buttons {
+    margin-bottom: 20px;
+}
+
+.partidos-ordenacao div div{
+    justify-content: space-between;
+    display: flex
+}
+
+.partidos-ordenacao strong {
+    font-size: 16px;
+    color: #999;
+    margin-top: 5px;
+    width: 300px
+}
+
+.partidos-ordenacao button{
+    border-radius: 5px;
+    border: 2px solid #da552f;
+    background: none;
+    margin-top: 10px;
+    color: #da552f;
+    font-weight: bold;
+    font-size: 16px;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.2s;
+    cursor: pointer;
+}
+
+.partidos-ordenacao button:hover{
+    background: #da552f;
+    border: 2px solid #DDD;
+    color: #DDD; 
 }
