@@ -56,14 +56,14 @@ export const useDadosAbertos = (resource, paramsDefault = {}) => {
         continue;
       }
 
+      // eslint-disable-next-line
       switch (rel) {
-        case 'first': {
+        case 'first':
           setFirstPage(page);
-        };
-
-        case 'last': {
+          break;
+        case 'last':
           setLastPage(page);
-        };
+          break;
       };
     }
   };
@@ -98,7 +98,7 @@ export const useDadosAbertos = (resource, paramsDefault = {}) => {
 
     fetch();
   }, [
-    params,
+    params, resource,
   ]);
 
   return {
