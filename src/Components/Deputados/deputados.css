@@ -47,12 +47,12 @@
     color: #DDD
 }
 
-.deputados-lista div {
+.deputados-buttons {
     display: flex;
     justify-content: space-between;
 }
 
-.deputados-lista div button {
+.deputados-buttons button {
     border-radius: 5px;
     border: 2px solid #da552f;
     background: none;
@@ -72,4 +72,48 @@
     background: #da552f;
     border: 2px solid #DDD;
     color: #DDD
+}
+
+.deputados-ordenacao {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    max-width: 300px;
+    padding: 0px 20px; 
+}
+
+.deputados-ordenacao .buttons {
+    margin-bottom: 20px;
+}
+
+.deputados-ordenacao div div{
+    justify-content: space-between;
+    display: flex
+}
+
+.deputados-ordenacao strong {
+    font-size: 16px;
+    color: #999;
+    margin-top: 5px;
+    width: 300px
+}
+
+.deputados-ordenacao button{
+    border-radius: 5px;
+    border: 2px solid #da552f;
+    background: none;
+    margin-top: 10px;
+    color: #da552f;
+    font-weight: bold;
+    font-size: 16px;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.2s;
+    cursor: pointer;
+}
+
+.deputados-ordenacao button:hover{
+    background: #da552f;
+    border: 2px solid #DDD;
+    color: #DDD;
 }
