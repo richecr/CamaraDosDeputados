@@ -1,62 +1,32 @@
+import './deputados.css';
 /* eslint-disable jsx-a11y/alt-text */
-import React, { useState, useEffect } from "react";
-import axios from "axios";
-import { Link } from "react-router-dom";
-
-import "./deputados.css";
+import { Link } from 'react-router-dom';
+import React, { useState } from 'react';
+import { useDadosAbertos } from '../../helpers';
 
 const Deputados = () => {
-    const [deputados, setDeputados] = useState([]);
-    const [page, setPage] = useState(1);
-    const [order, setOrder] = useState("nome");
-    const [inputValue, setInputValue] = useState("")
-    const [nome, setNome] = useState("");
-
-    const fetchData = async (page, order, nome) => {
-        const response = await axios.get(
-            `https://dadosabertos.camara.leg.br/api/v2/deputados?ordem=ASC&ordenarPor=${order}&pagina=${page}&itens=20&nome=${nome}`
-        );
-        const { dados } = response.data;
-
-        setDeputados(dados);
-        setPage(page);
-    };
-
-    const buscarDeputado = e => {
-        e.preventDefault();
-        setNome(inputValue);
-    };
-
-    useEffect(() => {
-        fetchData(page, order, nome);
-    }, [page, order, nome]);
-
-    const prevPage = () => {
-        if (page === 1) return;
-
-        const pageNumber = page - 1;
-        setPage(pageNumber);
-    };
-
-    const nextPage = () => {
-        if (page === 26) return;
-
-        const pageNumber = page + 1;
-        setPage(pageNumber);
-    };
-
-    const orderBy = field => {
-        setPage(1);
-        setOrder(field);
-    };
+    const [name, setName] = useState('');
+    const {
+        params,
+        prevPage,
+        setParam,
+        lastPage,
+        nextPage,
+        firstPage,
+        data: deputados,
+    } = useDadosAbertos('deputados', {
+            nome: name,
+            ordenarPor: 'nome',
+        },
+    );
 
     return (
         <div className="deputados-lista">
-            <form className="search" onSubmit={buscarDeputado}>
+            <form className="search" onSubmit={() => setParam('nome', name)}>
                 <input
                     placeholder="Buscar por nome"
-                    value={inputValue}
-                    onChange={e => setInputValue(e.target.value)}
+                    value={name}
+                    onChange={e => setName(e.target.value)}
                 />
                 <button className="search-button">Buscar</button>
             </form>
@@ -64,13 +34,13 @@ const Deputados = () => {
                 <strong>Ordernar por</strong>
                 <div className="buttons">
                     <div>
-                        <button onClick={() => { orderBy("id") }}>Id</button>
-                        <button onClick={() => { orderBy("idLegislatura") }}>Id da Legislatura</button>
-                        <button onClick={() => { orderBy("nome") }}>Nome</button>
+                        <button onClick={() => setParam('ordenarPor', 'id')}>Id</button>
+                        <button onClick={() => setParam('ordenarPor', 'idLegislatura')}>Id da Legislatura</button>
+                        <button onClick={() => setParam('ordenarPor', 'nome')}>Nome</button>
                     </div>
                     <div>
-                        <button onClick={() => { orderBy("siglaUF") }}>Sigla de UF</button>
-                        <button onClick={() => { orderBy("siglaPartido") }}>Sigla do Partido</button>
+                        <button onClick={() => setParam('ordenarPor', 'siglaUF')}>Sigla de UF</button>
+                        <button onClick={() => setParam('ordenarPor', 'siglaPartido')}>Sigla do Partido</button>
                     </div>
                 </div>
             </div>
@@ -84,11 +54,11 @@ const Deputados = () => {
                 </article>
             ))}
             <div className="deputados-buttons">
-                <button disabled={page === 1} onClick={prevPage} >Anterior</button>
-                <button disabled={page === 26} onClick={nextPage} >Próxima</button>
+                <button disabled={params.pagina <= firstPage} onClick={prevPage} >Anterior</button>
+                <button disabled={params.pagina >= lastPage} onClick={nextPage} >Próxima</button>
             </div>
         </div>
-    )
+    );
 }
 
 export default Deputados;
