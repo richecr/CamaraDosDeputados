@@ -117,3 +117,12 @@
     border: 2px solid #DDD;
     color: #DDD;
 }
+
+.search {
+    display: flex;
+    justify-items: start;
+}
+
+.search-button {
+    margin: 0px 5px;
+}
