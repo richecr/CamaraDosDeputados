@@ -12,12 +12,12 @@ export default class Router extends React.Component {
     render() {
         return (
             <BrowserRouter>
+                <Main />
                 <Switch>
-                    <Route exact path="/" component={ Main } />
-                    <Route path="/deputados/" component={ Deputados } />
-                    <Route path="/deputado/:id" component={ Deputado } />
-                    <Route path="/partidos/" component={ Partidos } />
-                    <Route path="/partido/:id" component={ Partido } />
+                    <Route path="/deputados/" component={Deputados} />
+                    <Route path="/deputado/:id" component={Deputado} />
+                    <Route path="/partidos/" component={Partidos} />
+                    <Route path="/partido/:id" component={Partido} />
                 </Switch>
             </BrowserRouter>
         )
