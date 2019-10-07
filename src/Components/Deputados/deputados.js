@@ -1,38 +1,62 @@
-import './deputados.css';
 /* eslint-disable jsx-a11y/alt-text */
-import { Link } from 'react-router-dom';
-import React, { useState } from 'react';
-import { useDadosAbertos } from '../../helpers';
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import { Link } from "react-router-dom";
+
+import "./deputados.css";
 
 const Deputados = () => {
-    const [name, setName] = useState('');
-    const {
-        params,
-        prevPage,
-        setParam,
-        lastPage,
-        nextPage,
-        firstPage,
-        data: deputados,
-    } = useDadosAbertos('deputados', {
-            nome: name,
-            ordenarPor: 'nome',
-        },
-    );
+    const [deputados, setDeputados] = useState([]);
+    const [page, setPage] = useState(1);
+    const [order, setOrder] = useState("nome");
+    const [inputValue, setInputValue] = useState("")
+    const [nome, setNome] = useState("");
 
-    const handleSubmit = (event) => {
-        event.preventDefault();
+    const fetchData = async (page, order, nome) => {
+        const response = await axios.get(
+            `https://dadosabertos.camara.leg.br/api/v2/deputados?ordem=ASC&ordenarPor=${order}&pagina=${page}&itens=20&nome=${nome}`
+        );
+        const { dados } = response.data;
 
-        setParam('nome', name);
+        setDeputados(dados);
+        setPage(page);
+    };
+
+    const buscarDeputado = e => {
+        e.preventDefault();
+        setNome(inputValue);
+    };
+
+    useEffect(() => {
+        fetchData(page, order, nome);
+    }, [page, order, nome]);
+
+    const prevPage = () => {
+        if (page === 1) return;
+
+        const pageNumber = page - 1;
+        setPage(pageNumber);
+    };
+
+    const nextPage = () => {
+        if (page === 26) return;
+
+        const pageNumber = page + 1;
+        setPage(pageNumber);
+    };
+
+    const orderBy = field => {
+        setPage(1);
+        setOrder(field);
     };
 
     return (
         <div className="deputados-lista">
-            <form className="search" onSubmit={handleSubmit}>
+            <form className="search" onSubmit={buscarDeputado}>
                 <input
                     placeholder="Buscar por nome"
-                    value={name}
-                    onChange={e => setName(e.target.value)}
+                    value={inputValue}
+                    onChange={e => setInputValue(e.target.value)}
                 />
                 <button className="search-button">Buscar</button>
             </form>
@@ -40,31 +64,31 @@ const Deputados = () => {
                 <strong>Ordernar por</strong>
                 <div className="buttons">
                     <div>
-                        <button onClick={() => setParam('ordenarPor', 'id')}>Id</button>
-                        <button onClick={() => setParam('ordenarPor', 'idLegislatura')}>Id da Legislatura</button>
-                        <button onClick={() => setParam('ordenarPor', 'nome')}>Nome</button>
+                        <button onClick={() => { orderBy("id") }}>Id</button>
+                        <button onClick={() => { orderBy("idLegislatura") }}>Id da Legislatura</button>
+                        <button onClick={() => { orderBy("nome") }}>Nome</button>
                     </div>
                     <div>
-                        <button onClick={() => setParam('ordenarPor', 'siglaUF')}>Sigla de UF</button>
-                        <button onClick={() => setParam('ordenarPor', 'siglaPartido')}>Sigla do Partido</button>
+                        <button onClick={() => { orderBy("siglaUF") }}>Sigla de UF</button>
+                        <button onClick={() => { orderBy("siglaPartido") }}>Sigla do Partido</button>
                     </div>
                 </div>
             </div>
             {deputados.map(deputado => (
                 <article key={deputado.id}>
-                    <strong>{deputado.nome} - {deputado.siglaPartido}</strong>
-                    <p></p>
-                    <img width="114" height="152" src={deputado.urlFoto}></img>
-                    <p></p>
+                    <div className="image-wrapper">
+                        <img width="114" height="152" src={deputado.urlFoto}></img>
+                    </div>
+                    <h2>{deputado.nome} - {deputado.siglaPartido}</h2>
                     <Link to={"/deputado/" + deputado.id}>Ver Detalhes</Link>
                 </article>
             ))}
             <div className="deputados-buttons">
-                <button disabled={params.pagina <= firstPage} onClick={prevPage} >Anterior</button>
-                <button disabled={params.pagina >= lastPage} onClick={nextPage} >Próxima</button>
+                <button disabled={page === 1} onClick={prevPage} >Anterior</button>
+                <button disabled={page === 26} onClick={nextPage} >Próxima</button>
             </div>
         </div>
-    );
+    )
 }
 
 export default Deputados;

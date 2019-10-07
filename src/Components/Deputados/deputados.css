@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Lato:400,700&display=swap');
+
 .deputados-lista {
     max-width: 300px;
     margin: 20px auto 0;
@@ -6,45 +8,54 @@
 
 .deputados-lista article {
     background: #fff;
-    border: 1px solid #DDD;
-    border-radius: 10px;
-    padding: 20px;
-    margin-bottom: 20px;
+    border-radius: 13px;
+    padding: 38px 30px;
+    margin-bottom: 10px;
+    text-align: center;
 }
 
-.deputados-lista article strong {
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+.deputados-lista article h2 {
+    font-family: 'Lato', sans-serif;
     font-size: 16px;
-    color: #999;
-    margin-top: 5px;
+    color: #2d2e37;
+    margin: 29px 0;
+    font-weight: 400;
 }
 
-.deputados-lista article img {
-    display: block;
-    margin-left: auto;
-    margin-right: auto
+.deputados-lista article .image-wrapper {
+    text-align: center;
+    width: 100px;
+    height: 100px;
+    background: #4AAFE3;
+    border-radius: 50%;
+    overflow: hidden;
+    box-shadow: 0 1px 9px 0 #e3e5ed;
+    margin: 20px auto;
+    margin-top: 0;
 }
 
 .deputados-lista article a {
-    height: 42px;
-    border-radius: 5px;
-    border: 2px solid #da552f;
-    background: none;
-    margin-top: 10px;
-    color: #da552f;
-    font-weight: bold;
-    font-size: 16px;
-    text-decoration: none;
-    display: flex;
-    justify-content: center;
+    font-family: 'Lato', sans-serif;
     align-items: center;
+    display: inline-flex;
+    font-size: 1rem;
+    justify-content: center;
+    position: relative;
+    border-radius: 13px;
+    line-height: 2.5rem;
+    text-decoration: none;
+    font-size: 12px;
+    background-color: #2d2e37;
+    color: white;
+    width: 100%;
+    text-align: center;
+    vertical-align: middle;
     transition: all 0.2s;
+
 }
 
 .deputados-lista article a:hover{
-    background: #da552f;
-    border: 2px solid #DDD;
-    color: #DDD
+    background: #da552e;
 }
 
 .deputados-buttons {
@@ -70,8 +81,6 @@
 
 .deputados-lista div button:hover{
     background: #da552f;
-    border: 2px solid #DDD;
-    color: #DDD
 }
 
 .deputados-ordenacao {
@@ -81,12 +90,11 @@
 }
 
 .deputados-ordenacao .buttons {
-    margin-bottom: 20px;
+    margin: 20px 0;
 }
 
 .deputados-ordenacao div div{
-    justify-content: space-between;
-    display: flex
+    text-align: center;
 }
 
 .deputados-ordenacao strong {
@@ -97,25 +105,25 @@
 }
 
 .deputados-ordenacao button{
-    border-radius: 5px;
-    border: 2px solid #da552f;
-    background: none;
-    margin-top: 10px;
-    color: #da552f;
-    font-weight: bold;
-    font-size: 16px;
-    text-decoration: none;
-    display: flex;
-    justify-content: center;
+    font-family: 'Lato', sans-serif;
     align-items: center;
+    display: inline-flex;
+    justify-content: center;
+    position: relative;
+    border-radius: 13px;
+    line-height: 1.4rem;
+    text-decoration: none;
+    font-size: 11px;
+    background-color: #01b6f5;
+    color: white;
+    text-align: center;
+    vertical-align: middle;
     transition: all 0.2s;
+    border: 0;
+    text-transform: uppercase;
+    margin: 0 4px 3px 0;
+    padding: 0 14px;
     cursor: pointer;
-}
-
-.deputados-ordenacao button:hover{
-    background: #da552f;
-    border: 2px solid #DDD;
-    color: #DDD;
 }
 
 .search {
