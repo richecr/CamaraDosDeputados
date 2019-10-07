@@ -1,43 +1,17 @@
+@import '../main//variables.scss';
+
 .partidos-lista {
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    max-width: 300px;
-    margin: 20px auto 0px;
-    padding: 0px 20px; 
 }
 
-.partidos-lista article {
-    border: 1px solid #DDD;
-    border-radius: 10px;
-    padding: 20px;
-    margin-bottom: 20px;
+article {
+    min-height: 150px;    
 }
 
-.partidos-lista article strong {
-    font-size: 16px;
-    color: #999;
-    margin-top: 5px;
-}
-
-.partidos-lista article a {
-    height: 40px;
-    border-radius: 5px;
-    border: 2px solid #da552f;
-    background: none;
-    margin-top: 10px;
-    color: #da552f;
-    font-weight: bold;
-    font-size: 16px;
-    text-decoration: none;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: all 0.2s;
-}
-
-.partidos-lista article a:hover{
-    background: #da552f;
-    border: 2px solid #DDD;
-    color: #DDD
+.detalhes-link {
+    font-size: 12px;
+    color: $orange;
+    text-align: right;
 }
 
 .partidos-buttons {
@@ -47,10 +21,10 @@
 
 .partidos-buttons button {
     border-radius: 5px;
-    border: 2px solid #da552f;
+    border: 2px solid $orange;
     background: none;
     margin-top: 10px;
-    color: #da552f;
+    color: $orange;
     font-weight: bold;
     font-size: 16px;
     text-decoration: none;
@@ -62,7 +36,7 @@
 }
 
 .partidos-buttons button:hover{
-    background: #da552f;
+    background: $orange;
     border: 2px solid #DDD;
     color: #DDD;
     padding: 0px 20px; 
@@ -94,10 +68,10 @@
 
 .partidos-ordenacao button{
     border-radius: 5px;
-    border: 2px solid #da552f;
+    border: 2px solid $orange;
     background: none;
     margin-top: 10px;
-    color: #da552f;
+    color: $orange;
     font-weight: bold;
     font-size: 16px;
     text-decoration: none;
@@ -109,7 +83,7 @@
 }
 
 .partidos-ordenacao button:hover{
-    background: #da552f;
+    background: $orange;
     border: 2px solid #DDD;
     color: #DDD; 
 }

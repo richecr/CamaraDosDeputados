@@ -1,3 +1,18 @@
+@charset "utf-8";
+
+$body-background-color: rgb(239, 241, 241);
+
+@import '../../../node_modules/bulma/bulma.sass';
+
+
+body {
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.columns-fix {
+    padding: 0.75rem;
+}
+
 ul {
     list-style-type: none;
     margin: 0;
@@ -23,4 +38,8 @@ li a {
 
 li a:hover {
     background-color: #111111;
+}
+
+.text-center {
+    text-align: center;
 }
