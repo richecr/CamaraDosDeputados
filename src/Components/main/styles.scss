@@ -7,7 +7,10 @@ $body-background-color: rgb(239, 241, 241);
 
 body {
     font-family: 'Courier New', Courier, monospace;
-    padding: 10px;
+}
+
+.columns-fix {
+    padding: 0.75rem;
 }
 
 ul {
@@ -35,4 +38,8 @@ li a {
 
 li a:hover {
     background-color: #111111;
+}
+
+.text-center {
+    text-align: center;
 }

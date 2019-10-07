@@ -12,7 +12,7 @@ const Partido = (props) => {
 
     const fetchData = async () => {
         const { id } = props.match.params;
-        const response = await axios.get("https://dadosabertos.camara.leg.br/api/v2/partidos/"+id);
+        const response = await axios.get("https://dadosabertos.camara.leg.br/api/v2/partidos/" + id);
         const { dados } = response.data;
 
         setPartido(dados);
@@ -25,37 +25,58 @@ const Partido = (props) => {
     });
 
     return (
-        <div className="partido">
-            <div className="titulo">
-                <h1>{ partido.nome } - { partido.sigla }</h1>
-            </div>
+        <div>
+            <section className="hero is-dark">
+                <div className="hero-body">
+                    <div className="container">
+                    <h1 className="title is-4">{partido.nome} - {partido.sigla}</h1>
+                    <h2 className="subtitle">
+                        <img src={partido.urlLogo} ></img>
+                    </h2>
+                    </div>
+                </div>
+            </section>
 
-            <div className="titulo-img">
-                <img src={ partido.urlLogo } ></img>
-            </div>
+            <div className="container">
+                <div className="columns is-centered columns-fix">
 
-            <div className="status">
-                <h1>Status</h1>
-                <article key={partido.id} >
-                    <strong>Situação: { status.situacao }</strong>
-                    <br></br>
-                    <strong>Total de posse: { status.totalPosse }</strong>
-                    <br></br>
-                    <strong>Total de membros: { status.totalMembros }</strong>
-                </article>
-            </div>
+                    <div className="column">
+                        <div className="card">
+                            <div className="card-content">
+                                <div className="media">
+                                    <div className="media-content">
+                                        <p className="title is-4">Status</p>
+                                    </div>
+                                </div>
+                                <div className="content">
+                                    <strong>Situação: </strong> {status.situacao}
+                                    <br></br>
+                                    <strong>Total de posse: </strong> {status.totalPosse}
+                                    <br></br>
+                                    <strong>Total de membros: </strong> {status.totalMembros}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
-            <br></br>
-
-            <div className="lider">
-                <h1 id="title">Líder</h1>
-                <article key={ lider.nome }>
-                    <strong>Nome: { lider.nome }</strong>
-                    <br></br>
-                    <strong>Sigla Partido: { lider.siglaPartido }</strong>
-                    <br></br>
-                    <img src={ lider.urlFoto }></img>
-                </article>
+                    <div className="column">
+                        <div className="card">
+                            <div className="card-image">
+                                <figure className="image is-4by3">
+                                    <img src={lider.urlFoto}></img>
+                                </figure>
+                            </div>
+                            <div className="card-content">
+                                <div className="media">
+                                    <div className="media-content">
+                                        <p className="title is-6">Nome: {lider.nome}</p>
+                                        <p className="subtitle is-8">Sigla Partido: {lider.siglaPartido}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     );
