@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { useDadosAbertos } from '../../helpers';
 
 const Partidos = () => {
+    const [initials, setInitials] = useState('');
     const {
         params,
         prevPage,
@@ -13,12 +14,27 @@ const Partidos = () => {
         firstPage,
         data: partidos,
     } = useDadosAbertos('partidos', {
+            sigla: initials,
             ordenarPor: 'nome',
         },
     );
 
+    const handleSubmit = (event) => {
+        event.preventDefault();
+
+        setParam('sigla', initials);
+    };
+
     return (
         <div className="partidos-lista">
+            <form className="search" onSubmit={handleSubmit}>
+                <input
+                    placeholder="Buscar partido pela sigla"
+                    value={initials}
+                    onChange={e => setInitials(e.target.value)}
+                />
+                <button className="search-button">Buscar</button>
+            </form>
             <div className="partidos-ordenacao">
                 <strong>Ordernar por</strong>
                 <div className="buttons">
