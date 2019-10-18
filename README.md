@@ -7,8 +7,8 @@ A aplicação estar sendo desenvolvida em [ReactJS](https://reactjs.org/) e cons
 
 Para executar a aplicação localmente e contribuir, é necessário:
 
-- NodeJS
-- ReactJS
+- NodeJS.
+- ReactJS.
 
 E então, rodar os seguintes comandos:
 
