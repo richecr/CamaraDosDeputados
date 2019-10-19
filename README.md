@@ -16,7 +16,7 @@ E então, rodar os seguintes comandos:
 npm install
 npm start
 ```
-A aplicação estará disponivel em: http://localhost:3000/
+> A aplicação estará disponivel em: http://localhost:3000/
 
 
 ## Quer contribuir ? :smiley:
