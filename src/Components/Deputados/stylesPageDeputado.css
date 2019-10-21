@@ -1,47 +1,48 @@
 .deputado {
-    display: flex;
-    flex-direction: column;
-    margin-left: 15px;
+	padding: 1rem;
 }
 
-.titulo {
-    font-size: 16px;
+.title {
+	text-align: center;
 }
 
-.info-deputado {
-    display: flex;
-    flex-flow: row wrap;
-    align-items: flex-start;
-    justify-content: space-between;
+.deputado_photo {
+	max-width: 250px;
 }
 
-.info-deputado section {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    margin-right: 20px;
-    padding: 15px;
-    margin-bottom: 10px;
-    margin-top: 10px;
-    width: 350px;
-    height: 350px;
-    border: 2px solid rgb(18, 222, 236);
-    border-radius: 10px;
+.basic-info {
+	width: 500px;
+	margin: 0 auto;
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
 }
 
-.info-deputado section:hover {
-    opacity: 0.7;
-    background: #53a7ea;
-    -webkit-transform: scale(1.1);
-    -ms-transform: scale(.1);
-    transform: scale(1.1);
+.basic-info .tags {
+	margin: 0;
 }
 
-.info-deputado section h1 {
-    font-size: 20px;
-    text-align: center;
+.info-card {
+	width: 800px;
+	margin: 0 auto;
+	background-color: #fff;
+	border-radius: 5px;
+	padding: 1rem;
+	box-shadow: 0 2px 3px rgba(10, 10, 10, 0.1), 0 0 0 1px rgba(10, 10, 10, 0.1);
+	margin-top: 1rem;
 }
 
-.info-deputado section h3 {
-    font-size: 14px;
+.info-card-container {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: flex-start;
+	align-items: center;
+}
+
+.info-text {
+	font-size: 1.2rem;
+}
+
+.info-text span {
+	margin: 0.5rem;
 }
