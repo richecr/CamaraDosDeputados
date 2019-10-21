@@ -1,128 +1,141 @@
+.deputado-img {
+	max-width: 100%;
+}
+
+.deputado-info {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
 .deputados-lista {
-    max-width: 300px;
-    margin: 20px auto 0;
-    padding: 0px 20px;
+	max-width: 300px;
+	margin: 20px auto 0;
+	padding: 0px 20px;
 }
 
 .deputados-lista article {
-    background: #fff;
-    border: 1px solid #DDD;
-    border-radius: 10px;
-    padding: 20px;
-    margin-bottom: 20px;
+	background: #fff;
+	border: 1px solid #ddd;
+	border-radius: 10px;
+	padding: 20px;
+	margin-bottom: 20px;
 }
 
 .deputados-lista article strong {
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    font-size: 16px;
-    color: #999;
-    margin-top: 5px;
+	font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+		"Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+	font-size: 16px;
+	color: #999;
+	margin-top: 5px;
 }
 
 .deputados-lista article img {
-    display: block;
-    margin-left: auto;
-    margin-right: auto
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 .deputados-lista article a {
-    height: 42px;
-    border-radius: 5px;
-    border: 2px solid #da552f;
-    background: none;
-    margin-top: 10px;
-    color: #da552f;
-    font-weight: bold;
-    font-size: 16px;
-    text-decoration: none;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: all 0.2s;
+	height: 42px;
+	border-radius: 5px;
+	border: 2px solid #da552f;
+	background: none;
+	margin-top: 10px;
+	color: #da552f;
+	font-weight: bold;
+	font-size: 16px;
+	text-decoration: none;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	transition: all 0.2s;
 }
 
-.deputados-lista article a:hover{
-    background: #da552f;
-    border: 2px solid #DDD;
-    color: #DDD
+.deputados-lista article a:hover {
+	background: #da552f;
+	border: 2px solid #ddd;
+	color: #ddd;
 }
 
 .deputados-buttons {
-    display: flex;
-    justify-content: space-between;
+	display: flex;
+	justify-content: space-between;
 }
 
 .deputados-buttons button {
-    border-radius: 5px;
-    border: 2px solid #da552f;
-    background: none;
-    margin-top: 10px;
-    color: #da552f;
-    font-weight: bold;
-    font-size: 16px;
-    text-decoration: none;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: all 0.2s;
-    cursor: pointer;
+	border-radius: 5px;
+	border: 2px solid #da552f;
+	background: none;
+	margin-top: 10px;
+	color: #da552f;
+	font-weight: bold;
+	font-size: 16px;
+	text-decoration: none;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	transition: all 0.2s;
+	cursor: pointer;
 }
 
-.deputados-lista div button:hover{
-    background: #da552f;
-    border: 2px solid #DDD;
-    color: #DDD
+.deputados-lista div button:hover {
+	background: #da552f;
+	border: 2px solid #ddd;
+	color: #ddd;
 }
 
 .deputados-ordenacao {
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    max-width: 300px;
-    padding: 0px 20px; 
+	font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+		"Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+	max-width: 300px;
+	padding: 0px 20px;
 }
 
 .deputados-ordenacao .buttons {
-    margin-bottom: 20px;
+	margin-bottom: 20px;
 }
 
-.deputados-ordenacao div div{
-    justify-content: space-between;
-    display: flex
+.deputados-ordenacao div div {
+	justify-content: space-between;
+	display: flex;
 }
 
 .deputados-ordenacao strong {
-    font-size: 16px;
-    color: #999;
-    margin-top: 5px;
-    width: 300px
+	font-size: 16px;
+	color: #999;
+	margin-top: 5px;
+	width: 300px;
 }
 
-.deputados-ordenacao button{
-    border-radius: 5px;
-    border: 2px solid #da552f;
-    background: none;
-    margin-top: 10px;
-    color: #da552f;
-    font-weight: bold;
-    font-size: 16px;
-    text-decoration: none;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: all 0.2s;
-    cursor: pointer;
+.deputados-ordenacao button {
+	border-radius: 5px;
+	border: 2px solid #da552f;
+	background: none;
+	margin-top: 10px;
+	color: #da552f;
+	font-weight: bold;
+	font-size: 16px;
+	text-decoration: none;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	transition: all 0.2s;
+	cursor: pointer;
 }
 
-.deputados-ordenacao button:hover{
-    background: #da552f;
-    border: 2px solid #DDD;
-    color: #DDD;
+.deputados-ordenacao button:hover {
+	background: #da552f;
+	border: 2px solid #ddd;
+	color: #ddd;
 }
 
 .search {
-    display: flex;
-    justify-items: start;
+	display: flex;
+	justify-items: start;
 }
 
 .search-button {
-    margin: 0px 5px;
+	margin: 0px 5px;
 }
