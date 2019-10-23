@@ -15,35 +15,6 @@ article {
     text-align: right;
 }
 
-.partidos-buttons {
-    display: flex;
-    justify-content: space-between;
-}
-
-.partidos-buttons button {
-    border-radius: 5px;
-    border: 2px solid $orange;
-    background: none;
-    margin-top: 10px;
-    color: $orange;
-    font-weight: bold;
-    font-size: 16px;
-    text-decoration: none;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: all 0.2s;
-    cursor: pointer;
-}
-
-.partidos-buttons button:hover{
-    background: $orange;
-    border: 2px solid #DDD;
-    color: #DDD;
-    padding: 0px 20px; 
-}
-
-
 .partidos-ordenacao {
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     max-width: 300px;
