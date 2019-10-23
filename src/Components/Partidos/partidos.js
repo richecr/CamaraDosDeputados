@@ -67,7 +67,7 @@ const Partidos = () => {
             </nav>
 
             <div className="partidos-lista columns-fix">
-                <div className="columns is-multiline is-centered">
+                <div className={`columns is-multiline ${partidos.length > 2 ? 'is-centered' : ''} `}>
                     {partidos.map(partido => (
                         <div className="column is-4">
                             <article key={partido.id} className="card">

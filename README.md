@@ -7,8 +7,8 @@ A aplicação estar sendo desenvolvida em [ReactJS](https://reactjs.org/) e cons
 
 Para executar a aplicação localmente e contribuir, é necessário:
 
-- NodeJS
-- ReactJS
+- NodeJS.
+- ReactJS.
 
 E então, rodar os seguintes comandos:
 
@@ -37,3 +37,7 @@ Mas se você quiser aprender ReactJS e dar seus primeiros passos por aqui, seja 
 - [Curso para iniciar no ReactJS da Rockeseat](https://skylab.rocketseat.com.br/node/curso-react-js).
 
 Fique a vontade para adicionar novos links.
+
+## Hall of Fame
+
+[![](https://sourcerer.io/fame/Rickecr/Rickecr/CamaraDosDeputados/images/0)](https://sourcerer.io/fame/Rickecr/Rickecr/CamaraDosDeputados/links/0)[![](https://sourcerer.io/fame/Rickecr/Rickecr/CamaraDosDeputados/images/1)](https://sourcerer.io/fame/Rickecr/Rickecr/CamaraDosDeputados/links/1)[![](https://sourcerer.io/fame/Rickecr/Rickecr/CamaraDosDeputados/images/2)](https://sourcerer.io/fame/Rickecr/Rickecr/CamaraDosDeputados/links/2)[![](https://sourcerer.io/fame/Rickecr/Rickecr/CamaraDosDeputados/images/3)](https://sourcerer.io/fame/Rickecr/Rickecr/CamaraDosDeputados/links/3)[![](https://sourcerer.io/fame/Rickecr/Rickecr/CamaraDosDeputados/images/4)](https://sourcerer.io/fame/Rickecr/Rickecr/CamaraDosDeputados/links/4)[![](https://sourcerer.io/fame/Rickecr/Rickecr/CamaraDosDeputados/images/5)](https://sourcerer.io/fame/Rickecr/Rickecr/CamaraDosDeputados/links/5)[![](https://sourcerer.io/fame/Rickecr/Rickecr/CamaraDosDeputados/images/6)](https://sourcerer.io/fame/Rickecr/Rickecr/CamaraDosDeputados/links/6)[![](https://sourcerer.io/fame/Rickecr/Rickecr/CamaraDosDeputados/images/7)](https://sourcerer.io/fame/Rickecr/Rickecr/CamaraDosDeputados/links/7)
