@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom';
 import React, { useState } from 'react';
 import { useDadosAbertos } from '../../helpers';
 
+import Paginacao from '../paginacao'
+
 const Deputados = () => {
     const [name, setName] = useState('');
     const {
@@ -94,15 +96,15 @@ const Deputados = () => {
                         ))}
                     </div>
                 </div>
-                <div className="deputados-buttons">
-                    <button disabled={params.pagina <= firstPage} onClick={prevPage} >Anterior</button>
-                    <button disabled={params.pagina >= lastPage} onClick={nextPage} >Próxima</button>
-                </div>
+                <Paginacao 
+                    prevPage={prevPage}
+                    nextPage={nextPage}
+                    pagina={params.pagina}
+                    firstPage={firstPage}
+                    lastPage={lastPage}
+                />
             </div>
         </div>
-
-
-
     );
 }
 

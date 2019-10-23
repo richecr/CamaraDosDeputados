@@ -2,6 +2,7 @@ import '../Partidos/partidos.scss';
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useDadosAbertos } from '../../helpers';
+import Paginacao from '../paginacao'
 
 const Partidos = () => {
     const [initials, setInitials] = useState('');
@@ -89,10 +90,13 @@ const Partidos = () => {
                         </div>
                     ))}
                 </div>
-                <div className="partidos-buttons">
-                    <button disabled={params.pagina <= firstPage} onClick={prevPage}>Anterior</button>
-                    <button disabled={params.pagina >= lastPage} onClick={nextPage}>Próxima</button>
-                </div>
+                <Paginacao
+                    prevPage={prevPage}
+                    nextPage={nextPage}
+                    pagina={params.pagina}
+                    firstPage={firstPage}
+                    lastPage={lastPage}
+                />
             </div>
         </div>
     );
