@@ -5,7 +5,10 @@ export const extractParamFromUrl = (key, url) => {
   const splitted = url.split(`${key}=`)[1];
 
   if (splitted) {
-    return Number(splitted.charAt(0));
+    let paramMatch = splitted.match(/(.+)&/);
+    if (paramMatch !== null) {
+      return Number(paramMatch[1]);
+    }
   }
 };
 
