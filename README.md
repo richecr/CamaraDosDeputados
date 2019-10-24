@@ -1,3 +1,4 @@
+[![Open Source Helpers](https://www.codetriage.com/rickecr/camaradosdeputados/badges/users.svg)](https://www.codetriage.com/rickecr/camaradosdeputados)
 # [Câmara dos Deputados](https://camaradeputados.herokuapp.com/)
 > Aplicação com propósito de mostrar o que esta acontecendo na Câmara dos Deputados.
 
