@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useDadosAbertos } from '../../helpers';
 import Paginacao from '../paginacao'
+import Loader from '../loader';
 
 const Partidos = () => {
     const [initials, setInitials] = useState('');
@@ -25,6 +26,8 @@ const Partidos = () => {
 
         setParam('sigla', initials);
     };
+
+    const isLoading = !partidos.length;
 
     return (
         <div className="columns columns-fix">
@@ -66,6 +69,7 @@ const Partidos = () => {
                 </Link>
             </nav>
 
+            {isLoading ? <Loader /> :
             <div className="partidos-lista columns-fix">
                 <div className={`columns is-multiline ${partidos.length > 2 ? 'is-centered' : ''} `}>
                     {partidos.map(partido => (
@@ -97,7 +101,7 @@ const Partidos = () => {
                     firstPage={firstPage}
                     lastPage={lastPage}
                 />
-            </div>
+            </div>}
         </div>
     );
 };

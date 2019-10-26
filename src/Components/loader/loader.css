@@ -1,0 +1,7 @@
+.loader-wrapper {
+    display: flex;
+    height: calc(100vh - 80px);
+    width: 100%;
+    justify-content: center;
+}
+
