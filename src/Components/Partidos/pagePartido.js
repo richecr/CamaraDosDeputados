@@ -37,7 +37,7 @@ const Partido = (props) => {
                 </div>
             </section>
 
-            <div className="container">
+            <div className="container partido-single">
                 <div className="columns is-centered columns-fix">
 
                     <div className="column">
@@ -62,8 +62,8 @@ const Partido = (props) => {
                     <div className="column">
                         <div className="card">
                             <div className="card-image">
-                                <figure className="image is-4by3">
-                                    <img src={lider.urlFoto}></img>
+                                <figure className="image">
+                                    <div style={{backgroundImage: `url(${lider.urlFoto})`}} className="image-lider"></div>
                                 </figure>
                             </div>
                             <div className="card-content">
