@@ -23,23 +23,23 @@ const Despesas = ({ id }) => {
       <h2 class="title is-4">Despesas</h2>
       {despesas.map(despesa => {
         return (
-          <div className="despesa" key={despesa.codDocumento || despesa.numDocumento}>
-            <div>
-              <span className="has-text-weight-bold	">Fornecedor: </span>
-              {despesa.nomeFornecedor}
-            </div>
-            <div>
-              <span className="has-text-weight-bold	">Tipo de despesa: </span>
-              {despesa.tipoDespesa}
-            </div>
-            <div>
-              <span className="has-text-weight-bold	">Data: </span>
-              {despesa.dataDocumento || 'Sem data'}
-            </div>
-            <div>
-              <span className="has-text-weight-bold	">Valor: </span>
-              R$ {despesa.valorDocumento}
-            </div>
+          <div className="box despesa" key={despesa.codDocumento || despesa.numDocumento}>
+            <h3 class="info-text tags has-addons">
+              <span class="tag is-primary ">Fornecedor: </span>
+              <span class="tag">{despesa.nomeFornecedor}</span>
+            </h3>
+            <h3 class="info-text tags has-addons">
+              <span class="tag is-primary ">Tipo de despesa: </span>
+              <span class="tag">{despesa.tipoDespesa}</span>
+            </h3>
+            <h3 class="info-text tags has-addons">
+              <span class="tag is-primary ">Data: </span>
+              <span class="tag">{despesa.dataDocumento || 'Sem data'}</span>
+            </h3>
+            <h3 class="info-text tags has-addons">
+              <span class="tag is-primary ">Valor: </span>
+              <span class="tag">R$ {despesa.valorDocumento}</span>
+            </h3>
           </div>
         );
       })}
