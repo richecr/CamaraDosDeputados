@@ -1,15 +1,16 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import Despesas from '../Despesas/despesas';
 
 import "./stylesPageDeputado.css";
 
 const Deputado = ({ match }) => {
 	const [isLoading, setIsLoading] = useState(true);
 	const [deputado, setDeputado] = useState(null);
+	const { id } = match.params;
 
 	useEffect(() => {
 		async function fetchDeputado() {
-			const { id } = match.params;
 			const { data } = await axios.get(
 				`https://dadosabertos.camara.leg.br/api/v2/deputados/${id}`
 			);
@@ -19,7 +20,7 @@ const Deputado = ({ match }) => {
 		}
 
 		fetchDeputado();
-	}, [match]);
+	}, [id]);
 
 	return (
 		<div className="deputado">
@@ -130,6 +131,7 @@ const Deputado = ({ match }) => {
 								</h3>
 							</div>
 						</section>
+            <Despesas id={id} />
 					</div>
 				</>
 			)}
