@@ -4,7 +4,8 @@ import { Link } from "react-router-dom";
 import React, { useState } from "react";
 import { useDadosAbertos } from "../../helpers";
 
-import Paginacao from '../paginacao'
+import Paginacao from '../paginacao';
+import Loader from '../loader';
 
 const Deputados = () => {
 	const [name, setName] = useState("");
@@ -26,6 +27,8 @@ const Deputados = () => {
 
 		setParam("nome", name);
 	};
+
+	const isLoading = !deputados.length;
 
 	return (
 		<div className="columns columns-fix">
@@ -82,6 +85,7 @@ const Deputados = () => {
 				</Link>
 			</nav>
 
+			{isLoading ? <Loader /> :
 			<div className="partidos-lista columns-fix">
 				<div className="columns">
 					<div className="columns is-multiline is-mobile">
@@ -126,7 +130,7 @@ const Deputados = () => {
                     firstPage={firstPage}
                     lastPage={lastPage}
                 />
-            </div>
+            </div>}
         </div>
     );
 };
