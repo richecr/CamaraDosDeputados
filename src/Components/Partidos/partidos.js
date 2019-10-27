@@ -78,10 +78,10 @@ const Partidos = () => {
                                 <div className="card-content">
                                     <div className="media">
                                         <div className="media-content">
-                                            <p className="title is-6">
+                                            <p className="title">
                                                 {partido.nome}
                                             </p>
-                                            <p className="subtitle is-8">
+                                            <p className="subtitle">
                                                 {partido.sigla}
                                             </p>
                                         </div>
