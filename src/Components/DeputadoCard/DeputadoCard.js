@@ -7,7 +7,7 @@ const DeputadoCard = ({ id, nome, siglaPartido, urlFoto }) => {
     <div class="deputado-card card">
       <div class="card-image">
         <figure class="image">
-          <img className="deputado-img" src={urlFoto} />
+          <img className="deputado-img" alt={nome} src={urlFoto} />
         </figure>
       </div>
       <div class="card-content">

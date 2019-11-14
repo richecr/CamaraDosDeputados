@@ -27,17 +27,19 @@ const Deputado = ({ match }) => {
 			{!isLoading && deputado !== null && (
 				<>
 					<div className="title">
-						<figure class="deputado-photo">
-							<img
-								width="114"
-								height="152"
-								alt={deputado.nomeCivil}
-								src={deputado.ultimoStatus.urlFoto}
-							/>
-						</figure>
-						<h1>
-							{deputado.nomeCivil} - {deputado.ufNascimento}
-						</h1>
+						<div className="title-basic">
+							<figure class="deputado-photo">
+								<img
+									width="114"
+									height="152"
+									alt={deputado.nomeCivil}
+									src={deputado.ultimoStatus.urlFoto}
+								/>
+							</figure>
+							<h1>
+								{deputado.nomeCivil} - {deputado.ufNascimento}
+							</h1>
+						</div>
 						<div class="basic-info">
 							<h3 class="info-text tags has-addons">
 								<span class="tag is-info ">Condição Eleitoral: </span>
@@ -131,7 +133,8 @@ const Deputado = ({ match }) => {
 								</h3>
 							</div>
 						</section>
-            <Despesas id={id} />
+            			
+						<Despesas id={id} />
 					</div>
 				</>
 			)}

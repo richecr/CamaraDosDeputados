@@ -3,15 +3,22 @@
 }
 
 .title {
-	text-align: center;
+	display: flex;
+	flex-direction: column;
+}
+
+.title-basic {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	flex-wrap: wrap;
 }
 
 .deputado_photo {
-	max-width: 250px;
+	max-width: 25%;
 }
 
 .basic-info {
-	width: 500px;
 	margin: 0 auto;
 	display: flex;
 	align-items: center;
@@ -22,8 +29,13 @@
 	margin: 0;
 }
 
+.info-deputado {
+	display: flex;
+	flex-direction: column;
+}
+
 .info-card {
-	width: 800px;
+	width: 80%;
 	margin: 0 auto;
 	background-color: #fff;
 	border-radius: 5px;
@@ -34,6 +46,7 @@
 
 .info-card-container {
 	display: flex;
+	flex-direction: row;
 	flex-wrap: wrap;
 	justify-content: flex-start;
 	align-items: center;
