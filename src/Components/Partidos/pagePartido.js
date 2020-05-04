@@ -9,20 +9,20 @@ const Partido = (props) => {
     const [partido, setPartido] = useState({});
     const [status, setStatus] = useState({});
     const [lider, setLider] = useState({});
-
-    const fetchData = async () => {
-        const { id } = props.match.params;
-        const response = await axios.get("https://dadosabertos.camara.leg.br/api/v2/partidos/" + id);
-        const { dados } = response.data;
-
-        setPartido(dados);
-        setStatus(dados.status);
-        setLider(dados.status.lider);
-    }
+    const { id } = props.match.params;
 
     useEffect(() => {
+        async function fetchData() {
+            const response = await axios.get("https://dadosabertos.camara.leg.br/api/v2/partidos/" + id);
+            const { dados } = response.data;
+    
+            setPartido(dados);
+            setStatus(dados.status);
+            setLider(dados.status.lider);
+        }
+
         fetchData();
-    });
+    }, [id]);
 
     return (
         <div>
