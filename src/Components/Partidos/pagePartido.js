@@ -22,7 +22,7 @@ const Partido = (props) => {
 
     useEffect(() => {
         fetchData();
-    });
+    }, []);
 
     return (
         <div>
