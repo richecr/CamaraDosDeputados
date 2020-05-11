@@ -30,7 +30,7 @@ Todos os arquivos estão na pasta `src`, os componentes em: `src/Components/` de
 Na página inicial do [repositório](https://github.com/Rickecr/AppCamaraDosDeputados) tem um botão `Fork`. Ao clicar é só esperar concluir o fork. E então ele irá criar o repositório na sua conta. E agora é só clonar em sua máquina, assim:
 
 ```sh
-git clone https://github.com/<nome_de_usuario>/CamaraDosDeputados
+git clone https://github.com/Rickecr/CamaraDosDeputados.git
 ```
 
 Ao concluir, você terá o repositório em seu computador e então é só abrir em seu editor preferido e fazer suas modificações.
