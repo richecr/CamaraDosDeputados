@@ -1,0 +1,25 @@
+@import "../../pages/Main//variables.scss";
+
+.partido-card {
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+
+  min-height: 150px;
+
+  .title {
+    font-size: 14px;
+    line-height: 20px;
+  }
+
+  .subtitle {
+    text-align: center;
+    font-size: 14px;
+    margin-top: 0px !important;
+  }
+
+  .detalhes-link {
+    font-size: 12px;
+    color: $orange;
+    text-align: right;
+  }
+}

@@ -5,7 +5,7 @@ export const extractParamFromUrl = (key, url) => {
   const splitted = url.split(`${key}=`)[1];
 
   if (splitted) {
-    let paramMatch = splitted.match(/(.+)&/);
+    const paramMatch = splitted.match(/(.+)&/);
     if (paramMatch !== null) {
       return Number(paramMatch[1]);
     }
@@ -13,11 +13,12 @@ export const extractParamFromUrl = (key, url) => {
 };
 
 export const useDadosAbertos = (resource, paramsDefault = {}) => {
-  const [params, setParams] = useState(Object.assign({
+  const [params, setParams] = useState({
     itens: 20,
     pagina: 1,
     ordem: 'ASC',
-  }, paramsDefault)); 
+    ...paramsDefault,
+  });
   const [data, setData] = useState([
     //
   ]);
@@ -52,10 +53,12 @@ export const useDadosAbertos = (resource, paramsDefault = {}) => {
   };
 
   const updatePagination = (links) => {
+    // eslint-disable-next-line
     for (const { rel, href } of links) {
       const page = extractParamFromUrl('pagina', href);
 
-      if (! page) {
+      if (!page) {
+        // eslint-disable-next-line
         continue;
       }
 
@@ -67,7 +70,7 @@ export const useDadosAbertos = (resource, paramsDefault = {}) => {
         case 'last':
           setLastPage(page);
           break;
-      };
+      }
     }
   };
 
@@ -77,17 +80,17 @@ export const useDadosAbertos = (resource, paramsDefault = {}) => {
 
       try {
         const {
-          data: {
-            dados,
-            links,
-          },
-        } = await Axios.get(`https://dadosabertos.camara.leg.br/api/v2/${resource}`, {
-          params,
-        });
+          data: { dados, links },
+        } = await Axios.get(
+          `https://dadosabertos.camara.leg.br/api/v2/${resource}`,
+          {
+            params,
+          }
+        );
 
         setData(dados);
 
-        if (! Array.isArray(links)) {
+        if (!Array.isArray(links)) {
           return;
         }
 
@@ -100,9 +103,7 @@ export const useDadosAbertos = (resource, paramsDefault = {}) => {
     };
 
     fetch();
-  }, [
-    params, resource,
-  ]);
+  }, [params, resource]);
 
   return {
     data,

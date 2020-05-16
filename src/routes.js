@@ -1,23 +1,23 @@
-import React from "react";
-import { Partidos, Deputados } from "./containers";
-import { BrowserRouter, Switch, Route } from "react-router-dom";
+import React from 'react';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
-import Main from "./Components/main";
-import Deputado from "./Components/Deputados/pageDeputado.js";
-import Partido from "./Components/Partidos/pagePartido.js";
+import Main from './pages/Main';
+import Deputados from './pages/Deputados';
+import Partidos from './pages/Partidos';
 
-export default class Router extends React.Component {
-  render() {
-    return (
-      <BrowserRouter>
-        <Main />
-        <Switch>
-          <Route path="/deputados/" component={Deputados} />
-          <Route path="/deputado/:id" component={Deputado} />
-          <Route path="/partidos/" component={Partidos} />
-          <Route path="/partido/:id" component={Partido} />
-        </Switch>
-      </BrowserRouter>
-    );
-  }
+import DeputadoInfo from './pages/DeputadoInfo';
+import PartidoInfo from './pages/PartidoInfo';
+
+export default function Router() {
+  return (
+    <BrowserRouter>
+      <Main />
+      <Switch>
+        <Route path="/deputados/" component={Deputados} />
+        <Route path="/deputado/:id" component={DeputadoInfo} />
+        <Route path="/partidos/" component={Partidos} />
+        <Route path="/partido/:id" component={PartidoInfo} />
+      </Switch>
+    </BrowserRouter>
+  );
 }

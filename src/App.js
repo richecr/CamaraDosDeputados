@@ -1,14 +1,11 @@
 import React from 'react';
-import Router from "./routes";
-import "./global.css";
+import Router from './routes';
+import './global.css';
 
-export default class App extends React.Component {
-
-	render() {
-		return (
-			<div>
-				<Router />
-			</div>
-		)
-	}
+export default function App() {
+  return (
+    <div>
+      <Router />
+    </div>
+  );
 }
