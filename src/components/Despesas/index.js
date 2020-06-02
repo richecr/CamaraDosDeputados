@@ -15,7 +15,7 @@ const Despesas = ({ id }) => {
     loading,
     data: despesas,
   } = useDadosAbertos(`/deputados/${id}/despesas`, {
-    ordem: 'ASC',
+    ordem: 'DESC',
     ordenarPor: 'dataDocumento',
   });
   const ref = useRef(null);
