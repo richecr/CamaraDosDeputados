@@ -4,7 +4,7 @@
 
 ## Executar localmente :smirk:
 
-A aplicação estar sendo desenvolvida em [ReactJS](https://reactjs.org/) e consumimos os dados da [API dos Dados Abertos](dadosabertos).
+A aplicação estar sendo desenvolvida em [ReactJS](https://reactjs.org/) e consumimos os dados da [API dos Dados Abertos](https://dadosabertos.camara.leg.br/swagger/api.html).
 
 Para executar a aplicação localmente e contribuir, é necessário:
 
