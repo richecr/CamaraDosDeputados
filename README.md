@@ -1,10 +1,10 @@
 [![Open Source Helpers](https://www.codetriage.com/rickecr/camaradosdeputados/badges/users.svg)](https://www.codetriage.com/rickecr/camaradosdeputados)
 # [Câmara dos Deputados](https://camaradosdeputados.netlify.app/)
-> Aplicação com propósito de mostrar o que esta acontecendo na Câmara dos Deputados.
+> Aplicação com propósito de mostrar o que está acontecendo na Câmara dos Deputados.
 
 ## Executar localmente :smirk:
 
-A aplicação estar sendo desenvolvida em [ReactJS](https://reactjs.org/) e consumimos os dados da [API dos Dados Abertos](https://dadosabertos.camara.leg.br/swagger/api.html).
+A aplicação está sendo desenvolvida em [ReactJS](https://reactjs.org/) e consumimos os dados da [API dos Dados Abertos](https://dadosabertos.camara.leg.br/swagger/api.html).
 
 Para executar a aplicação localmente e contribuir, é necessário:
 
