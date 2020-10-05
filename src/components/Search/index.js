@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Paginacao from '../paginacao';
 import Loader from '../Loader';
 
@@ -75,6 +76,32 @@ const Search = ({
       )}
     </div>
   );
+};
+
+Search.propTypes = {
+  title: PropTypes.string.isRequired,
+  placeholder: PropTypes.string.isRequired,
+  filters: PropTypes.arrayOf(
+    PropTypes.shape({ name: PropTypes.string, displayName: PropTypes.string })
+  ).isRequired,
+  searchTerm: PropTypes.string.isRequired,
+  loading: PropTypes.bool.isRequired,
+  pagination: PropTypes.objectOf(
+    PropTypes.shape({
+      pagina: PropTypes.number,
+      firstPage: PropTypes.number,
+      lastPage: PropTypes.number,
+      prevPage: PropTypes.number,
+      nextPage: PropTypes.number,
+    })
+  ).isRequired,
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.node,
+  ]).isRequired,
+  setParam: PropTypes.func.isRequired,
+  setSearchTerm: PropTypes.func.isRequired,
+  handleSubmit: PropTypes.func.isRequired,
 };
 
 export default Search;

@@ -1,4 +1,5 @@
 import React, { useRef } from 'react';
+import PropTypes from 'prop-types';
 import { useDadosAbertos } from '../../helpers';
 import Paginacao from '../paginacao';
 import Loader from '../Loader';
@@ -58,6 +59,10 @@ const Despesas = ({ id }) => {
       </div>
     </section>
   );
+};
+
+Despesas.propTypes = {
+  id: PropTypes.number.isRequired,
 };
 
 export default Despesas;
