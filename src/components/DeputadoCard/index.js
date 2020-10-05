@@ -1,6 +1,7 @@
 import './DeputadoCard.scss';
 import React from 'react';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 const DeputadoCard = ({ id, nome, siglaPartido, urlFoto }) => {
   return (
@@ -31,6 +32,13 @@ const DeputadoCard = ({ id, nome, siglaPartido, urlFoto }) => {
       </div>
     </div>
   );
+};
+
+DeputadoCard.propTypes = {
+  id: PropTypes.number.isRequired,
+  nome: PropTypes.string.isRequired,
+  siglaPartido: PropTypes.string.isRequired,
+  urlFoto: PropTypes.string.isRequired,
 };
 
 export default DeputadoCard;

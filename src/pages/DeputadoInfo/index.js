@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import PropTypes from 'prop-types';
 import Despesas from '../../components/Despesas';
 
 import './stylesPageDeputado.css';
@@ -147,6 +148,15 @@ const DeputadoInfo = ({ match }) => {
       )}
     </div>
   );
+};
+
+DeputadoInfo.propTypes = {
+  match: PropTypes.shape({
+    params: PropTypes.shape({
+      name: PropTypes.string.isRequired,
+      id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+    }),
+  }).isRequired,
 };
 
 export default DeputadoInfo;
