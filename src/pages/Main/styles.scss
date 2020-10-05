@@ -43,3 +43,8 @@ li a:hover {
 .text-center {
   text-align: center;
 }
+
+// Fix last tag componet space
+.tags:last-child {
+  margin-bottom: 1rem;
+}
