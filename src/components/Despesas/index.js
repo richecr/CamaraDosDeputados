@@ -2,6 +2,7 @@ import React, { useRef } from 'react';
 import { useDadosAbertos } from '../../helpers';
 import Paginacao from '../paginacao';
 import Loader from '../Loader';
+import Tag from '../Tag';
 
 import './despesas.css';
 
@@ -35,22 +36,14 @@ const Despesas = ({ id }) => {
             className="box despesa"
             key={despesa.codDocumento || despesa.numDocumento}
           >
-            <h3 className="info-text tags has-addons">
-              <span className="tag is-primary ">Fornecedor: </span>
-              <span className="tag">{despesa.nomeFornecedor}</span>
-            </h3>
-            <h3 className="info-text tags has-addons">
-              <span className="tag is-primary ">Tipo de despesa: </span>
-              <span className="tag">{despesa.tipoDespesa}</span>
-            </h3>
-            <h3 className="info-text tags has-addons">
-              <span className="tag is-primary ">Data: </span>
-              <span className="tag">{despesa.dataDocumento || 'Sem data'}</span>
-            </h3>
-            <h3 className="info-text tags has-addons">
-              <span className="tag is-primary ">Valor: </span>
-              <span className="tag">R$ {despesa.valorDocumento}</span>
-            </h3>
+            <Tag label="Fornecedor: " value={despesa.nomeFornecedor} primary />
+            <Tag
+              label="Tipo de despesa: "
+              value={despesa.tipoDespesa}
+              primary
+            />
+            <Tag label="Data: " value={despesa.dataDocumento} primary />
+            <Tag label="Valor: " value={despesa.valorDocumento} primary />
           </div>
         );
       })}
