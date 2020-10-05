@@ -2,43 +2,44 @@
 
 $body-background-color: rgb(239, 241, 241);
 
-@import "../../../node_modules/bulma/bulma.sass";
+@import '../../../node_modules/bulma/bulma.sass';
 
 body {
-	font-family: "Courier New", Courier, monospace;
+  font-family: 'Courier New', Courier, monospace;
 }
 
 .columns-fix {
-	padding: 0.75rem;
+  padding: 0.75rem;
+  width: 100%;
 }
 
 ul {
-	list-style-type: none;
-	margin: 0;
-	padding: 0;
-	overflow: hidden;
-	background-color: #333333;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333333;
 }
 
 li {
-	float: left;
-	cursor: pointer;
+  float: left;
+  cursor: pointer;
 }
 
 li a {
-	color: #da552f;
-	font-weight: bold;
-	display: block;
-	text-align: center;
-	padding: 16px;
-	text-decoration: none;
-	transition: all 0.2s;
+  color: #da552f;
+  font-weight: bold;
+  display: block;
+  text-align: center;
+  padding: 16px;
+  text-decoration: none;
+  transition: all 0.2s;
 }
 
 li a:hover {
-	background-color: #111111;
+  background-color: #111111;
 }
 
 .text-center {
-	text-align: center;
+  text-align: center;
 }
