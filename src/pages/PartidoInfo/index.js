@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import PropTypes from 'prop-types';
 
-import './stylePagePartido.css';
+import './styles.scss';
 
 const PartidoInfo = ({ match }) => {
   const [partido, setPartido] = useState({});

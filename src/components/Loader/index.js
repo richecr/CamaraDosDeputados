@@ -1,4 +1,4 @@
-import './loader.css';
+import './styles.scss';
 
 import React from 'react';
 import Spinner from '../../assets/spinner.svg';

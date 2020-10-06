@@ -6,7 +6,7 @@ import Tag from '../../components/Tag';
 
 import noImage from '../../assets/placeholder-user.png';
 
-import './stylesPageDeputado.css';
+import './styles.scss';
 
 const DeputadoInfo = ({ match }) => {
   const [isLoading, setIsLoading] = useState(true);

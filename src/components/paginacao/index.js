@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import './paginacao.scss';
+import './styles.scss';
 
 const Paginacao = ({ pagina, firstPage, lastPage, prevPage, nextPage }) => (
   <div className="pagination-buttons">

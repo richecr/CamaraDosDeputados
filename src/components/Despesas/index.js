@@ -5,7 +5,7 @@ import Paginacao from '../paginacao';
 import Loader from '../Loader';
 import Tag from '../Tag';
 
-import './despesas.css';
+import './styles.scss';
 
 const Despesas = ({ id }) => {
   const {
