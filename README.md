@@ -1,6 +1,8 @@
+![logo](https://i.imgur.com/HoU80jB.png?1)
+
 [![Open Source Helpers](https://www.codetriage.com/rickecr/camaradosdeputados/badges/users.svg)](https://www.codetriage.com/rickecr/camaradosdeputados)
-# [Câmara dos Deputados](https://camaradosdeputados.netlify.app/)
-> Aplicação com propósito de mostrar o que está acontecendo na Câmara dos Deputados.
+# [Quem gasta mais: Câmara dos Deputados](https://quem-gasta-mais.netlify.app/)
+Aplicação com propósito de mostrar o que está acontecendo na Câmara dos Deputados. Quais os deputados que mais gastam e com o que eles estão gastando.
 
 ## Executar localmente :smirk:
 
@@ -14,8 +16,8 @@ Para executar a aplicação localmente e contribuir, é necessário:
 E então, rodar os seguintes comandos:
 
 ```sh
-npm install
-npm start
+$ npm install
+$ npm start
 ```
 A aplicação estará disponivel em: http://localhost:3000/
 
@@ -24,7 +26,7 @@ A aplicação estará disponivel em: http://localhost:3000/
 
 Caso você deseje adicionar/atualizar/criar issues bacanas e contribuir para o projeto, leia o [CONTRIBUTING.md](CONTRIBUTING.md).
 
-Fique tranquilo para enviar sugestões, fazer alterações e/ou procurar erros para nos informar criando uma issue e até mesmo corrigindo e mandando um PR. :relaxed:
+Fique tranquilo para enviar sugestões, fazer alterações e/ou procurar erros para nos informar criando uma issue e até mesmo corrigindo e mandando um PR. :smiley:
 
 
 ## Não sabe ReactJS ? :disappointed_relieved:
