@@ -4,7 +4,7 @@
 # [Quem gasta mais: Câmara dos Deputados](https://quem-gasta-mais.netlify.app/)
 Aplicação com propósito de mostrar o que está acontecendo na Câmara dos Deputados. Quais os deputados que mais gastam e com o que eles estão gastando.
 
-Você pode acessar a aplicação nesse [link]((https://quem-gasta-mais.netlify.app/)
+Você pode acessar a aplicação nesse [link](https://quem-gasta-mais.netlify.app/)
 
 ## Protótipo:
 
