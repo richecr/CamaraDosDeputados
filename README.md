@@ -4,6 +4,16 @@
 # [Quem gasta mais: Câmara dos Deputados](https://quem-gasta-mais.netlify.app/)
 Aplicação com propósito de mostrar o que está acontecendo na Câmara dos Deputados. Quais os deputados que mais gastam e com o que eles estão gastando.
 
+Você pode acessar a aplicação nesse [link]((https://quem-gasta-mais.netlify.app/)
+
+## Protótipo:
+
+Link para o [protótipo no figma](https://www.figma.com/file/d0EXcqtCoKIkeDIz5pBeGd/Prototype?node-id=0%3A1)
+
+Essa é a [issue](https://github.com/richecr/CamaraDosDeputados/issues/73) que está tratando a implementação dessas telas.
+
+![gif](https://i.picasion.com/pic90/fa68c94996a96f37ff241ae83369ad76.gif)
+
 ## Executar localmente :smirk:
 
 A aplicação está sendo desenvolvida em [ReactJS](https://reactjs.org/) e consumimos os dados da [API dos Dados Abertos](https://dadosabertos.camara.leg.br/swagger/api.html).
