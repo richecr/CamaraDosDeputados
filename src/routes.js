@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
-import Header from './pages/Header';
+import Header from './components/Header';
 import Deputados from './pages/Deputados';
 import Partidos from './pages/Partidos';
 

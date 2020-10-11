@@ -50,11 +50,13 @@ li {
   padding: 8px;
   text-decoration: none;
   transition: all 0.2s;
+  color: #2f2f2f;
 }
 
 .headerLeft li a:hover {
   background-color: #f3a62d;
   border-radius: 35px;
+  color: #ffffff;
 }
 
 .headerRight li svg:hover {
