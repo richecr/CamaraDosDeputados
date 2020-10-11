@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
-import Main from './pages/Main';
+import Header from './pages/Header';
 import Deputados from './pages/Deputados';
 import Partidos from './pages/Partidos';
 
@@ -11,7 +11,7 @@ import PartidoInfo from './pages/PartidoInfo';
 export default function Router() {
   return (
     <BrowserRouter>
-      <Main />
+      <Header />
       <Switch>
         <Route path="/deputados/" component={Deputados} />
         <Route path="/deputado/:id" component={DeputadoInfo} />

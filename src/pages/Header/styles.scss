@@ -1,0 +1,92 @@
+@charset "utf-8";
+
+$body-background-color: rgb(239, 241, 241);
+
+@import '../../../node_modules/bulma/bulma.sass';
+
+body {
+  font-family: 'Courier New', Courier, monospace;
+}
+
+header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #ffffff;
+  filter: drop-shadow(0px 4px 10px rgba(0, 0, 0, 0.25));
+}
+
+.headerLeft {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.columns-fix {
+  padding: 0.75rem;
+  width: 100%;
+}
+
+ul {
+  display: flex;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+li {
+  float: left;
+  cursor: pointer;
+}
+
+.headerLeft li a {
+  width: 145px;
+  color: #da552f;
+  font-weight: bold;
+  display: block;
+  text-align: center;
+  padding: 8px;
+  text-decoration: none;
+  transition: all 0.2s;
+}
+
+.headerLeft li a:hover {
+  background-color: #f3a62d;
+  border-radius: 35px;
+}
+
+.headerRight li svg:hover {
+  opacity: 0.7;
+}
+
+.headerRight ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-right: 20px;
+}
+
+.headerRight ul li {
+  margin-left: 25px;
+}
+
+.text-center {
+  text-align: center;
+}
+
+// Fix last tag componet space
+.tags:last-child {
+  margin-bottom: 1rem;
+}
+
+.text-center {
+  text-align: center;
+}
+
+// Fix last tag componet space
+.tags:last-child {
+  margin-bottom: 1rem;
+}
