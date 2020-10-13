@@ -1,14 +1,15 @@
 /* eslint-disable jsx-a11y/alt-text */
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import PropTypes from 'prop-types';
 
-import './stylePagePartido.css';
+import './styles.scss';
 
-const PartidoInfo = (props) => {
+const PartidoInfo = ({ match }) => {
   const [partido, setPartido] = useState({});
   const [status, setStatus] = useState({});
   const [lider, setLider] = useState({});
-  const { id } = props.match.params;
+  const { id } = match.params;
 
   useEffect(() => {
     async function fetchData() {
@@ -87,6 +88,15 @@ const PartidoInfo = (props) => {
       </div>
     </div>
   );
+};
+
+PartidoInfo.propTypes = {
+  match: PropTypes.shape({
+    params: PropTypes.shape({
+      name: PropTypes.string.isRequired,
+      id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+    }),
+  }).isRequired,
 };
 
 export default PartidoInfo;

@@ -1,6 +1,7 @@
-import './PartidoCard.scss';
+import './styles.scss';
 import React from 'react';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 const PartidoCard = ({ id, nome, sigla }) => {
   return (
@@ -20,6 +21,12 @@ const PartidoCard = ({ id, nome, sigla }) => {
       </footer>
     </article>
   );
+};
+
+PartidoCard.propTypes = {
+  id: PropTypes.number.isRequired,
+  nome: PropTypes.string.isRequired,
+  sigla: PropTypes.string.isRequired,
 };
 
 export default PartidoCard;

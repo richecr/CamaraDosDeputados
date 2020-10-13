@@ -1,8 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import PropTypes from 'prop-types';
 import Despesas from '../../components/Despesas';
+import Tag from '../../components/Tag';
 
-import './stylesPageDeputado.css';
+import noImage from '../../assets/placeholder-user.png';
+
+import './styles.scss';
 
 const DeputadoInfo = ({ match }) => {
   const [isLoading, setIsLoading] = useState(true);
@@ -33,25 +37,29 @@ const DeputadoInfo = ({ match }) => {
                 height="152"
                 alt={deputado.nomeCivil}
                 src={deputado.ultimoStatus.urlFoto}
+                onError={(e) => {
+                  e.currentTarget.src = noImage;
+                }}
               />
             </figure>
             <h1>
               {deputado.nomeCivil} - {deputado.ufNascimento}
             </h1>
             <div className="basic-info">
-              <h3 className="info-text tags has-addons">
-                <span className="tag is-info ">Condição Eleitoral: </span>
-                <span className="tag is-white">
-                  {deputado.ultimoStatus.condicaoEleitoral}
-                </span>
-              </h3>
+              <Tag
+                label="Condição Eleitoral: "
+                value={deputado.ultimoStatus.condicaoEleitoral}
+                white
+                info
+              />
+
               {deputado.ultimoStatus.situacao && (
-                <h3 className="info-text tags has-addons">
-                  <span className="tag is-info ">Situação: </span>
-                  <span className="tag is-white">
-                    {deputado.ultimoStatus.situacao}
-                  </span>
-                </h3>
+                <Tag
+                  label="Situação: "
+                  value={deputado.ultimoStatus.situacao}
+                  white
+                  info
+                />
               )}
             </div>
           </div>
@@ -59,86 +67,78 @@ const DeputadoInfo = ({ match }) => {
             <section className="info-card">
               <h2 className=" title is-4">Informações</h2>
               <div className="info-card-container">
-                <h3 className="tags has-addons info-text">
-                  <span className="tag is-primary ">Nome:</span>
-                  <span className="tag">{deputado.ultimoStatus.nome}</span>
-                </h3>
-                <h3 className="info-text tags has-addons">
-                  <span className="tag is-primary ">CPF: </span>
-                  <span className="tag">{deputado.cpf}</span>
-                </h3>
-                <h3 className="info-text tags has-addons">
-                  <span className="tag is-primary ">Sigla do Partido: </span>
-                  <span className="tag">
-                    {deputado.ultimoStatus.siglaPartido}
-                  </span>
-                </h3>
-                <h3 className="info-text tags has-addons">
-                  <span className="tag is-primary ">UF: </span>
-                  <span className="tag">{deputado.ultimoStatus.siglaUf}</span>
-                </h3>
-                <h3 className="info-text tags has-addons">
-                  <span className="tag is-primary ">ID Legislatura: </span>
-                  <span className="tag">
-                    {deputado.ultimoStatus.idLegislatura}
-                  </span>
-                </h3>
-                <h3 className="info-text tags has-addons">
-                  <span className="tag is-primary ">Data de Nascimento: </span>
-                  <span className="tag">{deputado.dataNascimento}</span>
-                </h3>
-                <h3 className="info-text tags has-addons">
-                  <span className="tag is-primary ">
-                    Município de Nascimento:{' '}
-                  </span>
-                  <span className="tag">{deputado.municipioNascimento}</span>
-                </h3>
-                <h3 className="info-text tags has-addons">
-                  <span className="tag is-primary ">Escolaridade: </span>
-                  <span className="tag">{deputado.escolaridade}</span>
-                </h3>
+                <Tag
+                  label="Nome: "
+                  value={deputado.ultimoStatus.nome}
+                  primary
+                />
+                <Tag label="CPF: " value={deputado.ultimoStatus.cpf} primary />
+                <Tag
+                  label="Sigla do Partido: "
+                  value={deputado.ultimoStatus.siglaPartido}
+                  primary
+                />
+                <Tag
+                  label="UF: "
+                  value={deputado.ultimoStatus.siglaUf}
+                  primary
+                />
+                <Tag
+                  label="ID Legislatura: "
+                  value={deputado.ultimoStatus.idLegislatura}
+                  primary
+                />
+                <Tag
+                  label="Data de Nascimento: "
+                  value={deputado.ultimoStatus.dataNascimento}
+                  primary
+                />
+                <Tag
+                  label=" Município de Nascimento: "
+                  value={deputado.ultimoStatus.municipioNascimento}
+                  primary
+                />
+                <Tag
+                  label="Escolaridade: "
+                  value={deputado.ultimoStatus.escolaridade}
+                  primary
+                />
               </div>
             </section>
 
             <section className="info-card">
               <h2 className="title is-4">Gabinete</h2>
               <div className="info-card-container">
-                <h3 className="info-text tags has-addons">
-                  <span className="tag is-primary ">Nome: </span>
-                  <span className="tag">
-                    {deputado.ultimoStatus.gabinete.nome}
-                  </span>
-                </h3>
-                <h3 className="info-text tags has-addons">
-                  <span className="tag is-primary ">Prédio: </span>
-                  <span className="tag">
-                    {deputado.ultimoStatus.gabinete.predio}
-                  </span>
-                </h3>
-                <h3 className="info-text tags has-addons">
-                  <span className="tag is-primary ">Sala: </span>
-                  <span className="tag">
-                    {deputado.ultimoStatus.gabinete.sala}
-                  </span>
-                </h3>
-                <h3 className="info-text tags has-addons">
-                  <span className="tag is-primary ">Andar: </span>
-                  <span className="tag">
-                    {deputado.ultimoStatus.gabinete.andar}
-                  </span>
-                </h3>
-                <h3 className="info-text tags has-addons">
-                  <span className="tag is-primary ">Telefone: </span>
-                  <span className="tag">
-                    {deputado.ultimoStatus.gabinete.telefone}
-                  </span>
-                </h3>
-                <h3 className="info-text tags has-addons">
-                  <span className="tag is-primary ">E-mail: </span>
-                  <span className="tag">
-                    {deputado.ultimoStatus.gabinete.email}
-                  </span>
-                </h3>
+                <Tag
+                  label="Nome: "
+                  value={deputado.ultimoStatus.gabinete.nome}
+                  primary
+                />
+                <Tag
+                  label="Prédio: "
+                  value={deputado.ultimoStatus.gabinete.predio}
+                  primary
+                />
+                <Tag
+                  label="Sala: "
+                  value={deputado.ultimoStatus.gabinete.sala}
+                  primary
+                />
+                <Tag
+                  label="Andar: "
+                  value={deputado.ultimoStatus.gabinete.andar}
+                  primary
+                />
+                <Tag
+                  label="Telefone: "
+                  value={deputado.ultimoStatus.gabinete.telefone}
+                  primary
+                />
+                <Tag
+                  label="E-mail: "
+                  value={deputado.ultimoStatus.gabinete.email}
+                  primary
+                />
               </div>
             </section>
             <Despesas id={id} />
@@ -147,6 +147,15 @@ const DeputadoInfo = ({ match }) => {
       )}
     </div>
   );
+};
+
+DeputadoInfo.propTypes = {
+  match: PropTypes.shape({
+    params: PropTypes.shape({
+      name: PropTypes.string.isRequired,
+      id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+    }),
+  }).isRequired,
 };
 
 export default DeputadoInfo;

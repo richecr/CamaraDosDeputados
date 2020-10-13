@@ -10,6 +10,8 @@ export const extractParamFromUrl = (key, url) => {
       return Number(paramMatch[1]);
     }
   }
+
+  return null;
 };
 
 export const useDadosAbertos = (resource, paramsDefault = {}) => {

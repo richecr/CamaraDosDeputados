@@ -1,6 +1,6 @@
 import React from 'react';
 import Router from './routes';
-import './global.css';
+import './global.scss';
 
 export default function App() {
   return (

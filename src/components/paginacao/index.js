@@ -1,6 +1,7 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-import './paginacao.scss';
+import './styles.scss';
 
 const Paginacao = ({ pagina, firstPage, lastPage, prevPage, nextPage }) => (
   <div className="pagination-buttons">
@@ -12,5 +13,13 @@ const Paginacao = ({ pagina, firstPage, lastPage, prevPage, nextPage }) => (
     </button>
   </div>
 );
+
+Paginacao.propTypes = {
+  pagina: PropTypes.number.isRequired,
+  firstPage: PropTypes.number.isRequired,
+  lastPage: PropTypes.number.isRequired,
+  prevPage: PropTypes.number.isRequired,
+  nextPage: PropTypes.number.isRequired,
+};
 
 export default Paginacao;

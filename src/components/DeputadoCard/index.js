@@ -1,13 +1,23 @@
-import './DeputadoCard.scss';
+import './styles.scss';
 import React from 'react';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
+
+import noImage from '../../assets/placeholder-user.png';
 
 const DeputadoCard = ({ id, nome, siglaPartido, urlFoto }) => {
   return (
     <div className="deputado-card card">
       <div className="card-image">
         <figure className="image">
-          <img className="deputado-img" src={urlFoto} alt="Foto do deputado" />
+          <img
+            className="deputado-img"
+            src={urlFoto}
+            onError={(e) => {
+              e.currentTarget.src = noImage;
+            }}
+            alt="Foto do deputado"
+          />
         </figure>
       </div>
       <div className="card-content">
@@ -31,6 +41,13 @@ const DeputadoCard = ({ id, nome, siglaPartido, urlFoto }) => {
       </div>
     </div>
   );
+};
+
+DeputadoCard.propTypes = {
+  id: PropTypes.number.isRequired,
+  nome: PropTypes.string.isRequired,
+  siglaPartido: PropTypes.string.isRequired,
+  urlFoto: PropTypes.string.isRequired,
 };
 
 export default DeputadoCard;
