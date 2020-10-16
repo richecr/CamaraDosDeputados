@@ -1,81 +1,100 @@
-.titulo {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.divPartido {
+  display: grid;
+  grid-template-columns: 40% auto;
+  grid-gap: 40px;
+  margin-top: 59px;
+  margin-left: 66px;
+  margin-right: 66px;
+
+  h1 {
+    font-size: 30px;
+  }
+
+  .infoPartido {
+    display: flex;
+    flex-direction: column;
+  }
 }
 
-.titulo-img {
+.partido {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
+  background: #ffffff;
+  border: 1px solid #adadad;
+  box-sizing: border-box;
+  padding: 10px;
+  margin-bottom: 25px;
+
+  div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 61px;
+    margin-bottom: 58px;
+  }
+
+  img {
+    height: 60%;
+    width: 60%;
+    margin-top: 10px;
+  }
 }
 
 .status {
-  max-width: 300px;
-  margin: 20px 0px 0px;
-  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  background: #ffffff;
+  border: 1px solid #adadad;
+  box-sizing: border-box;
+  padding: 10px;
+  height: 100%;
 
-  h1 {
-    color: #da552f;
-  }
-
-  article {
-    margin-left: 15px;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    padding: 10px;
-
-    strong {
-      font-weight: bold;
-      font-size: 16px;
-      color: darkblue;
-    }
-  }
-}
-
-.lider {
-  max-width: 300px;
-  padding-left: 20px;
-
-  h1 {
-    color: #da552f;
-  }
-
-  article {
-    margin-left: 15px;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    padding: 10px;
-
-    strong {
-      font-weight: bold;
-      font-size: 16px;
-      font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
-        'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-      color: darkblue;
-    }
-  }
-}
-
-.partidos-lista {
-  .title {
-    font-size: 14px;
-    line-height: 20px;
-  }
-
-  .subtitle {
+  div:first-child {
     text-align: center;
-    font-size: 14px;
-    margin-top: 0px !important;
+  }
+
+  div {
+    margin-bottom: 15px;
+  }
+
+  label {
+    margin-top: 10px;
+    font-size: 12px;
+    line-height: 14px;
+    padding: 5px 0px 5px 10px;
+
+    background: #e7e7e7;
+    border-radius: 6px 0px 0px 6px;
+  }
+
+  .backgroundYellow {
+    padding: 5px 10px 5px 10px;
+    background: #f3a62d;
+    border-radius: 0px 6px 6px 0px;
+    margin-right: 10px;
   }
 }
 
-.partido-single {
-  height: 400px;
+.infoPresidente {
+  background: #ffffff;
+  border: 1px solid #adadad;
+  box-sizing: border-box;
+  padding: 10px;
+
+  > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 100px;
+  }
+
   .image-lider {
-    background-size: contain;
-    height: 400px;
-    background-position: center;
-    background-repeat: no-repeat;
+    width: 250px;
+  }
+
+  p {
+    font-size: 24px;
+    text-align: center;
   }
 }
