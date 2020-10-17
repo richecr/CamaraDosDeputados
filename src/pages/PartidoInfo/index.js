@@ -27,8 +27,8 @@ const PartidoInfo = ({ match }) => {
   }, [id]);
 
   return (
-    <div className="divPartido">
-      <div className="infoPartido">
+    <div className="columns divPartido">
+      <div className="column is-two-fifths">
         <div className="partido">
           <div>
             <h1>
@@ -48,19 +48,30 @@ const PartidoInfo = ({ match }) => {
           <div>
             <h1>Informações</h1>
           </div>
-          <div>
-            <label>Situação: </label>
-            <label className="backgroundYellow">{status.situacao}</label>
-            <label>Total de posse: </label>
-            <label className="backgroundYellow">{status.totalPosse}</label>
-            <label>Total de membros: </label>
-            <label className="backgroundYellow">{status.totalMembros}</label>
+          <div className="informations">
+            <div>
+              <label>Situação: </label>
+              <label className="backgroundYellow">{status.situacao}</label>
+            </div>
+            <div>
+              <label>Total de posse: </label>
+              <label className="backgroundYellow">{status.totalPosse}</label>
+            </div>
+            <div>
+              <label>Total de membros: </label>
+              <label className="backgroundYellow">{status.totalMembros}</label>
+            </div>
+
+            <div>
+              <label>Total de membros: </label>
+              <label className="backgroundYellow">{status.totalMembros}</label>
+            </div>
           </div>
         </div>
       </div>
 
-      <div className="infoPresidente">
-        <div>
+      <div className="column">
+        <div className="infoPresidente">
           <h1 className="">Presidente</h1>
           <img
             className="image-lider"

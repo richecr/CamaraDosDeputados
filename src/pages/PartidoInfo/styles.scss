@@ -1,18 +1,10 @@
 .divPartido {
-  display: grid;
-  grid-template-columns: 40% auto;
-  grid-gap: 40px;
-  margin-top: 59px;
+  margin-top: 60px;
   margin-left: 66px;
   margin-right: 66px;
 
   h1 {
     font-size: 30px;
-  }
-
-  .infoPartido {
-    display: flex;
-    flex-direction: column;
   }
 }
 
@@ -48,14 +40,25 @@
   border: 1px solid #adadad;
   box-sizing: border-box;
   padding: 10px;
-  height: 100%;
+  // height: 100%;
 
-  div:first-child {
+  > div:first-child {
     text-align: center;
   }
 
   div {
     margin-bottom: 15px;
+  }
+
+  .informations {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    div {
+      display: flex;
+      height: fit-content;
+    }
   }
 
   label {
@@ -77,6 +80,9 @@
 }
 
 .infoPresidente {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   background: #ffffff;
   border: 1px solid #adadad;
   box-sizing: border-box;

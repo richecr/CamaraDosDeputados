@@ -25,7 +25,7 @@ export default function Header() {
       <div className="headerRight">
         <ul>
           <li>
-            <FaSearch className="iconMenu" size={25} color="#000000" />
+            <FaSearch className="iconMenu" size={25} />
           </li>
           <li>
             <a
@@ -34,7 +34,7 @@ export default function Header() {
               rel="noopener noreferrer"
               className="iconMenu"
             >
-              <FaGithub size={25} color="#000000" />
+              <FaGithub size={25} color="#2f2f2f" />
             </a>
           </li>
         </ul>
