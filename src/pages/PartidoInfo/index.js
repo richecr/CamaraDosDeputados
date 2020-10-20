@@ -1,8 +1,8 @@
-/* eslint-disable jsx-a11y/alt-text */
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import PropTypes from 'prop-types';
 
+import noImage from '../../assets/placeholder-user.png';
 import './styles.scss';
 
 const PartidoInfo = ({ match }) => {
@@ -27,63 +27,61 @@ const PartidoInfo = ({ match }) => {
   }, [id]);
 
   return (
-    <div>
-      <section className="hero is-dark">
-        <div className="hero-body">
-          <div className="container">
-            <h1 className="title is-4">
-              {partido.nome} - {partido.sigla}
+    <div className="columns divPartido">
+      <div className="column is-two-fifths">
+        <div className="partido">
+          <div>
+            <h1>
+              {partido.sigla} - {partido.nome}
             </h1>
-            <h2 className="subtitle">
-              <img src={partido.urlLogo} />
-            </h2>
+            <img
+              className="deputado-img"
+              src={partido.urlLogo}
+              onError={(e) => {
+                e.currentTarget.src = noImage;
+              }}
+              alt="Logo do partido"
+            />
           </div>
         </div>
-      </section>
+        <div className="status">
+          <div>
+            <h1>Informações</h1>
+          </div>
+          <div className="informations">
+            <div>
+              <label>Situação: </label>
+              <label className="backgroundYellow">{status.situacao}</label>
+            </div>
+            <div>
+              <label>Total de posse: </label>
+              <label className="backgroundYellow">{status.totalPosse}</label>
+            </div>
+            <div>
+              <label>Total de membros: </label>
+              <label className="backgroundYellow">{status.totalMembros}</label>
+            </div>
 
-      <div className="container partido-single">
-        <div className="columns is-centered columns-fix">
-          <div className="column">
-            <div className="card">
-              <div className="card-content">
-                <div className="media">
-                  <div className="media-content">
-                    <p className="title is-4">Status</p>
-                  </div>
-                </div>
-                <div className="content">
-                  <strong>Situação: </strong> {status.situacao}
-                  <br />
-                  <strong>Total de posse: </strong> {status.totalPosse}
-                  <br />
-                  <strong>Total de membros: </strong> {status.totalMembros}
-                </div>
-              </div>
+            <div>
+              <label>Total de membros: </label>
+              <label className="backgroundYellow">{status.totalMembros}</label>
             </div>
           </div>
+        </div>
+      </div>
 
-          <div className="column">
-            <div className="card">
-              <div className="card-image">
-                <figure className="image">
-                  <div
-                    style={{ backgroundImage: `url(${lider.urlFoto})` }}
-                    className="image-lider"
-                  />
-                </figure>
-              </div>
-              <div className="card-content">
-                <div className="media">
-                  <div className="media-content">
-                    <p className="title is-6">Nome: {lider.nome}</p>
-                    <p className="subtitle is-8">
-                      Sigla Partido: {lider.siglaPartido}
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+      <div className="column">
+        <div className="infoPresidente">
+          <h1 className="">Presidente</h1>
+          <img
+            className="image-lider"
+            src={lider.urlFoto}
+            onError={(e) => {
+              e.currentTarget.src = noImage;
+            }}
+            alt="Foto do líder"
+          />
+          <p>{lider.nome}</p>
         </div>
       </div>
     </div>
