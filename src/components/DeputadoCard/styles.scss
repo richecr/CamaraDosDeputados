@@ -1,9 +1,8 @@
-@import '../../pages/Main/variables.scss';
 @import '../Header/variables.scss';
 
 .deputado-card {
-  margin: auto;
   animation: fadeIn 0.5s;
+  width: 23vw !important;
   .card {
     .title {
       font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',

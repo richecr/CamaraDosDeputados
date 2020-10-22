@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import ReactPaginate from 'react-paginate';
 import { useDadosAbertos } from '../../helpers';
 import Search from '../../components/Search';
 import Hr from '../../components/HorizontalRule';
 import DeputadoCard from '../../components/DeputadoCard';
 import NotFound from '../../components/NotFound';
 import Loader from '../../components/Loader';
+import Pagination from '../../components/Pagination';
 
 import './styles.scss';
 
@@ -76,19 +76,7 @@ const Deputados = () => {
       </div>
 
       <div>
-        <ReactPaginate
-          pageCount={totalPages}
-          pageRangeDisplayed={5}
-          marginPagesDisplayed={1}
-          onPageChange={gotToPage}
-          containerClassName="paginate__container"
-          previousClassName="paginate__previous"
-          nextClassName="paginate__next"
-          activeClassName="paginate__active"
-          pageClassName="paginate__numbers"
-          nextLabel="Proxima"
-          previousLabel="Anterior"
-        />
+        <Pagination onPageChange={gotToPage} totalPages={totalPages} />
       </div>
     </div>
   );

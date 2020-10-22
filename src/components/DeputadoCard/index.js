@@ -38,7 +38,7 @@ const DeputadoCard = ({ id, nome, siglaPartido, urlFoto, siglaUf }) => {
   return (
     <Link
       to={`/deputado/${id}`}
-      className="deputado-card column is-mobile is-full-mobile is-one-third"
+      className="column is-mobile is-full-mobile is-one-third deputado-card "
     >
       <div className="card">
         <div className="card-image">

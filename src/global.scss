@@ -11,7 +11,7 @@ body {
   font-style: normal;
   font-weight: 500;
   line-height: 37px;
-  background-color: #e5e5e5;
+  background-color: #f7f8f9;
   color: #2f2f2f;
   min-height: 100%;
   min-width: fit-content;
@@ -20,12 +20,9 @@ body {
 .content__list {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: space-between;
 }
 
 .container {
   padding: 20px;
 }
-
-
-
