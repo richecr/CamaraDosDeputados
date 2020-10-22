@@ -2,10 +2,19 @@
   outline: none;
 }
 
+html {
+  height: 100%;
+}
+
 body {
-  font-family: 'Roboto Slab', serif;
-  background-color: #f7f8f9;
-  min-height: 100vh;
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 500;
+  line-height: 37px;
+  background-color: #e5e5e5;
+  color: #2f2f2f;
+  min-height: 100%;
+  min-width: fit-content;
 }
 
 .content__list {
@@ -17,3 +26,6 @@ body {
 .container {
   padding: 20px;
 }
+
+
+
