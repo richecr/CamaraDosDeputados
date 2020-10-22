@@ -14,18 +14,21 @@ export const extractParamFromUrl = (key, url) => {
   return null;
 };
 
-export const useDadosAbertos = (resource, paramsDefault = {}) => {
-  const [params, setParams] = useState({
+export const useDadosAbertos = (
+  resource,
+  paramsDefault = {
     itens: 20,
     pagina: 1,
     ordem: 'ASC',
-    ...paramsDefault,
-  });
+  }
+) => {
+  const [params, setParams] = useState(paramsDefault);
   const [data, setData] = useState([
     //
   ]);
   const [firstPage, setFirstPage] = useState(0);
   const [lastPage, setLastPage] = useState(0);
+  const [totalPages, setTotalPages] = useState(0);
   const [loading, setLoading] = useState(false);
 
   const setParam = (key, value) => {
@@ -96,6 +99,10 @@ export const useDadosAbertos = (resource, paramsDefault = {}) => {
           return;
         }
 
+        const lastPageUrl = links.filter((link) => link.rel === 'last');
+
+        setTotalPages(extractParamFromUrl('pagina', lastPageUrl[0].href));
+
         updatePagination(links);
       } catch (e) {
         // do something?
@@ -117,5 +124,6 @@ export const useDadosAbertos = (resource, paramsDefault = {}) => {
     prevPage,
     lastPage,
     firstPage,
+    totalPages,
   };
 };

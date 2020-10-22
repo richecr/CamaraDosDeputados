@@ -1,7 +1,19 @@
 .loader-wrapper {
-    display: flex;
-    height: calc(100vh - 80px);
-    width: 100%;
-    justify-content: center;
-}
+  display: flex;
+  width: 100%;
+  height: 50vh;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 
+  h4 {
+    margin-top: 10px;
+    font-size: 20px;
+  }
+
+  svg {
+    color: #f3a62d;
+    width: 100px;
+    height: 100px;
+  }
+}

@@ -1,0 +1,37 @@
+.search__container{
+    display: flex;
+    flex-direction: column;
+
+    .title__label{
+        font-size: 18px;
+        font-weight: bold;
+    }
+
+    .search__field__container{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: fit-content;
+        padding: 7px 20px;
+        background-color: #fff;
+        border-radius: 50px;
+        border: 1px solid #E5E5E5;
+        margin-top: 10px;
+
+        input {
+            border: none;
+            font-size: 16px;
+            min-width: 250px;
+        }
+
+        @media only screen and (max-width: 400px) {
+            input {
+                min-width: auto;
+            }
+        }
+
+        svg {
+            color: #E5E5E5;
+        }
+    }
+}

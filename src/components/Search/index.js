@@ -1,106 +1,40 @@
 import React from 'react';
+import { FaSearch } from 'react-icons/fa';
 import PropTypes from 'prop-types';
-import Paginacao from '../paginacao';
-import Loader from '../Loader';
+import Tooltip from 'react-tooltip-lite';
 
-const Search = ({
-  title = '',
-  placeholder = '',
-  filters = [],
-  searchTerm = '',
-  loading = false,
-  pagination = {},
-  children = [],
-  setParam = () => {},
-  setSearchTerm = () => {},
-  handleSubmit = () => {},
-}) => {
+import './styles.scss';
+
+const Search = ({ handleSubmit }) => {
+  function keyPress({ key, target }) {
+    if (key === 'Enter') {
+      handleSubmit(target.value);
+    }
+  }
+
   return (
-    <div className="columns columns-fix">
-      <nav className="panel column is-3">
-        <p className="panel-heading">{title}</p>
-        <div className="panel-block">
-          <p className="control has-icons-left">
-            <form className="search" onSubmit={handleSubmit}>
-              <div className="field has-addons">
-                <div className="control">
-                  <input
-                    className="input"
-                    placeholder={placeholder}
-                    value={searchTerm}
-                    onChange={(e) => setSearchTerm(e.target.value)}
-                  />
-                </div>
-                <div className="control">
-                  <button type="button" className="button is-info">
-                    Buscar
-                  </button>
-                </div>
-              </div>
-            </form>
-          </p>
-        </div>
-        {filters.map(({ name, displayName }) => {
-          return (
-            <button
-              key={name}
-              type="button"
-              className="panel-block"
-              onClick={() => setParam('ordenarPor', name)}
-            >
-              {displayName}
-            </button>
-          );
-        })}
-      </nav>
+    <div className="search__container">
+      <h2 className="title__label">Resultado da Pesquisa:</h2>
 
-      {loading ? (
-        <Loader />
-      ) : (
-        <div className="columns-fix">
-          <div
-            className={`columns is-multiline ${
-              children.length > 2 ? 'is-centered' : ''
-            } `}
-          >
-            {children}
-          </div>
-          <Paginacao
-            prevPage={pagination.prevPage}
-            nextPage={pagination.nextPage}
-            pagina={pagination.params.pagina}
-            firstPage={pagination.firstPage}
-            lastPage={pagination.lastPage}
+      <div className="search__field__container">
+        <Tooltip
+          content="Digite o nome e pressione enter"
+          arrow={false}
+          direction="down"
+        >
+          <input
+            type="text"
+            placeholder="Pesquise pelo nome"
+            onKeyPress={keyPress}
           />
-        </div>
-      )}
+        </Tooltip>
+        <FaSearch />
+      </div>
     </div>
   );
 };
 
 Search.propTypes = {
-  title: PropTypes.string.isRequired,
-  placeholder: PropTypes.string.isRequired,
-  filters: PropTypes.arrayOf(
-    PropTypes.shape({ name: PropTypes.string, displayName: PropTypes.string })
-  ).isRequired,
-  searchTerm: PropTypes.string.isRequired,
-  loading: PropTypes.bool.isRequired,
-  pagination: PropTypes.objectOf(
-    PropTypes.shape({
-      pagina: PropTypes.number,
-      firstPage: PropTypes.number,
-      lastPage: PropTypes.number,
-      prevPage: PropTypes.number,
-      nextPage: PropTypes.number,
-    })
-  ).isRequired,
-  children: PropTypes.oneOfType([
-    PropTypes.arrayOf(PropTypes.node),
-    PropTypes.node,
-  ]).isRequired,
-  setParam: PropTypes.func.isRequired,
-  setSearchTerm: PropTypes.func.isRequired,
   handleSubmit: PropTypes.func.isRequired,
 };
 

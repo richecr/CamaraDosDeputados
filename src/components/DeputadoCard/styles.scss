@@ -1,31 +1,57 @@
-@import "../../pages/Main//variables.scss";
+@import '../../pages/Main//variables.scss';
 
 .deputado-card {
   margin: auto;
-  max-width: 300px !important;
+  animation: fadeIn 0.5s;
+  .card {
+    .title {
+      font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
+        'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+      font-size: 18px;
+      line-height: 20px;
+    }
 
-  .title {
-    font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
-      "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
-    font-size: 14px;
-    line-height: 20px;
+    .deputado-img {
+      height: 300px;
+      width: 100%;
+    }
+
+    .deputado-info {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .detalhes-link {
+      font-size: 12px;
+      color: $orange;
+      text-align: right;
+    }
+
+    .card-footer {
+      justify-content: space-around;
+      border: none;
+      margin-bottom: 20px;
+      padding-bottom: 20px;
+    }
+
+    .card-link {
+      width: max-content;
+    }
+
+    .is-warning {
+      background-color: #f3a62d !important;
+      color: #fff !important;
+    }
   }
+}
 
-  .deputado-img {
-    height: 300px;
-    width: 100%;
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
   }
-
-  .deputado-info {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .detalhes-link {
-    font-size: 12px;
-    color: $orange;
-    text-align: right;
+  100% {
+    opacity: 1;
   }
 }

@@ -1,45 +1,81 @@
-import './styles.scss';
 import React from 'react';
 import { Link } from 'react-router-dom';
+import {
+  AiOutlineRise,
+  AiOutlinePushpin,
+  AiOutlineClockCircle,
+} from 'react-icons/ai';
+import Tooltip from 'react-tooltip-lite';
+import { formatDistance, parseISO } from 'date-fns';
+import { ptBR } from 'date-fns/locale';
 import PropTypes from 'prop-types';
+import ItemFooter from './components/CardFooterItem';
+import { useDadosAbertos } from '../../helpers';
 
 import noImage from '../../assets/placeholder-user.png';
 
-const DeputadoCard = ({ id, nome, siglaPartido, urlFoto }) => {
+import './styles.scss';
+
+const DeputadoCard = ({ id, nome, siglaPartido, urlFoto, siglaUf }) => {
+  const { data: despesas } = useDadosAbertos(`deputados/${id}/despesas`, {
+    ordenarPor: 'dataDocumento',
+    ordem: 'DESC',
+    ano: 2020,
+    itens: 1,
+  });
+
+  function formatDate() {
+    return (
+      (despesas.length > 0 &&
+        formatDistance(parseISO(despesas[0].dataDocumento), new Date(), {
+          locale: ptBR,
+        })) ||
+      'Não informado'
+    );
+  }
+
   return (
-    <div className="deputado-card card">
-      <div className="card-image">
-        <figure className="image">
-          <img
-            className="deputado-img"
-            src={urlFoto}
-            onError={(e) => {
-              e.currentTarget.src = noImage;
-            }}
-            alt="Foto do deputado"
-          />
-        </figure>
-      </div>
-      <div className="card-content">
-        <div className="media">
-          <div className="media-content deputado-info">
-            <p className="title">{nome}</p>
-            <p className="tags has-addons">
-              <span className="tag">Partido:</span>
-              <span className="tag is-primary">{siglaPartido}</span>
-            </p>
+    <Link
+      to={`/deputado/${id}`}
+      className="deputado-card column is-mobile is-full-mobile is-one-third"
+    >
+      <div className="card">
+        <div className="card-image">
+          <figure className="image">
+            <img
+              className="deputado-img"
+              src={urlFoto || noImage}
+              onError={(e) => {
+                e.currentTarget.src = noImage;
+              }}
+              alt={`Deputado ${nome}`}
+            />
+          </figure>
+        </div>
+        <div className="card-content">
+          <div className="media">
+            <div className="media-content deputado-info">
+              <p className="title">{nome}</p>
+              <p className="tags has-addons">
+                <span className="tag">Partido:</span>
+                <span className="tag is-warning">{siglaPartido}</span>
+              </p>
+            </div>
           </div>
         </div>
-        <div className="content">
-          <Link
-            className="detalhes-link card-footer-item"
-            to={`/deputado/${id}`}
-          >
-            Ver Detalhes
-          </Link>
+        <div className="card-footer">
+          <Tooltip content="Quantidade de despesas" arrow={false}>
+            <ItemFooter label="123" icon={<AiOutlineRise />} />
+          </Tooltip>
+          <Tooltip content="Estado" arrow={false}>
+            <ItemFooter label={siglaUf} icon={<AiOutlinePushpin />} />
+          </Tooltip>
+          <Tooltip content="Ultima despesa" arrow={false}>
+            <ItemFooter label={formatDate()} icon={<AiOutlineClockCircle />} />
+          </Tooltip>
         </div>
       </div>
-    </div>
+    </Link>
   );
 };
 
