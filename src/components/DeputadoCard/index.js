@@ -11,6 +11,7 @@ import { ptBR } from 'date-fns/locale';
 import PropTypes from 'prop-types';
 import ItemFooter from './components/CardFooterItem';
 import { useDadosAbertos } from '../../helpers';
+import Tag from '../Tag';
 
 import noImage from '../../assets/placeholder-user.png';
 
@@ -56,10 +57,8 @@ const DeputadoCard = ({ id, nome, siglaPartido, urlFoto, siglaUf }) => {
           <div className="media">
             <div className="media-content deputado-info">
               <p className="title">{nome}</p>
-              <p className="tags has-addons">
-                <span className="tag">Partido:</span>
-                <span className="tag is-warning">{siglaPartido}</span>
-              </p>
+
+              <Tag label="Partido:" value={siglaPartido} warning />
             </div>
           </div>
         </div>
