@@ -2,7 +2,6 @@ import './styles.scss';
 
 import React from 'react';
 import { Circles } from '@agney/react-loading';
-import Spinner from '../../assets/spinner.svg';
 
 const Loader = () => (
   <div className="loader-wrapper">
