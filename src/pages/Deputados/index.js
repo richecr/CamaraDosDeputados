@@ -10,7 +10,7 @@ import Pagination from '../../components/Pagination';
 import './styles.scss';
 
 const Deputados = () => {
-  const [searchTerm, setSearchTerm] = useState('silva');
+  const [searchTerm] = useState('');
   const {
     data: deputados,
     setParam,
@@ -31,30 +31,6 @@ const Deputados = () => {
     setPage(page.selected + 1);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
-
-  // não removi para uma futura implementação
-  const filters = [
-    {
-      name: 'id',
-      displayName: 'ID',
-    },
-    {
-      name: 'idLegislatura',
-      displayName: 'Id da Legislatura',
-    },
-    {
-      name: 'nome',
-      displayName: 'Nome',
-    },
-    {
-      name: 'siglaUF',
-      displayName: 'Sigla de UF',
-    },
-    {
-      name: 'siglaPartido',
-      displayName: 'Sigla do Partido',
-    },
-  ];
 
   return (
     <div className="container">
