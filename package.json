@@ -7,15 +7,19 @@
     "npm": "6.x"
   },
   "dependencies": {
+    "@agney/react-loading": "^0.1.2",
     "axios": "^0.18.1",
     "bulma": "^0.7.5",
+    "date-fns": "^2.16.1",
     "node-sass": "^4.12.0",
     "prop-types": "^15.7.2",
     "react": "^16.10.1",
     "react-dom": "^16.10.1",
     "react-icons": "^3.11.0",
+    "react-paginate": "^6.5.0",
     "react-router-dom": "^5.1.1",
-    "react-scripts": "^3.1.2"
+    "react-scripts": "^3.1.2",
+    "react-tooltip-lite": "^1.12.0"
   },
   "scripts": {
     "start": "react-scripts start",

@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import PropTypes from 'prop-types';
 import { useDadosAbertos } from '../../helpers';
-import Paginacao from '../paginacao';
+import Paginacao from '../Pagination';
 import Loader from '../Loader';
 import Tag from '../Tag';
 

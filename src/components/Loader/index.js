@@ -1,11 +1,12 @@
 import './styles.scss';
 
 import React from 'react';
-import Spinner from '../../assets/spinner.svg';
+import { Circles } from '@agney/react-loading';
 
 const Loader = () => (
   <div className="loader-wrapper">
-    <img src={Spinner} alt="Carregando..." />
+    <Circles />
+    <h4>Carregando...</h4>
   </div>
 );
 
