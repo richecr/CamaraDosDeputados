@@ -9,6 +9,9 @@
 .deputado_photo {
 	max-width: 250px;
 }
+ #avatar {
+	border-radius: 50%;
+ }
 
 .basic-info {
 	width: 500px;
@@ -23,7 +26,7 @@
 }
 
 .info-card {
-	width: 800px;
+	width: 80%;
 	margin: 0 auto;
 	background-color: #fff;
 	border-radius: 5px;
@@ -37,6 +40,43 @@
 	flex-wrap: wrap;
 	justify-content: flex-start;
 	align-items: center;
+}
+
+.info-card-data {
+	display: flex;
+	flex-grow: 8;
+}
+
+.info-card-avatar{
+	flex-grow: 2;
+}
+
+.info-card-data-personal{
+	width: 100%;
+}
+
+.info-card-data-header{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+
+.info-card-data-section{
+	display: flex;
+	justify-content: flex-start;
+	flex-direction: row;
+	padding: 20px 0;
+}
+
+.info-card-data-section.bordered{
+	border-bottom: 1px solid #E5E5E5;
+  border-radius: 5px;
+}
+
+.info-card-data-subsection{
+	min-width: 20%;
+	width: fit-content;
+	margin: 0 20px 0 0;
 }
 
 .info-text {
