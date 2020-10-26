@@ -10,6 +10,7 @@ const Paginacao = ({
   onPageChange,
   nextLabel,
   previousLabel,
+  ...rest
 }) => (
   <ReactPaginate
     pageCount={totalPages}
@@ -23,6 +24,7 @@ const Paginacao = ({
     pageClassName="paginate__numbers"
     nextLabel={nextLabel}
     previousLabel={previousLabel}
+    {...rest}
   />
 );
 
