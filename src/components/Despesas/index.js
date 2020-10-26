@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 import Axios from 'axios';
-import {extractParamFromUrl} from '../../helpers'
+import { extractParamFromUrl } from '../../helpers';
 import Paginacao from '../Pagination';
 import Loader from '../Loader';
 import { MdAttachMoney } from 'react-icons/md';
@@ -14,41 +14,36 @@ const Despesas = ({ id }) => {
   const [loading, setLoading] = useState(true);
   const [despesas, setDespesas] = useState([]);
 
-
   useEffect(() => {
-    (async () => getDespesas())();
-  }, [currentPage])
-
-  const getDespesas = async () => {
+    (async () => {
       setLoading(true);
       try {
         const {
-          data: {dados, links}
+          data: { dados, links },
         } = await Axios.get(
           `https://dadosabertos.camara.leg.br/api/v2/deputados/${id}/despesas`,
           {
             params: {
-
-          ordem: 'DESC',
-          ordenarPor: 'dataDocumento',
-          itens: 10,
-          pagina: currentPage,
-            }
+              ordem: 'DESC',
+              ordenarPor: 'dataDocumento',
+              itens: 10,
+              pagina: currentPage,
+            },
           }
         );
 
         const lastUrl = links.find((link) => link.rel === 'last');
 
-        setTotalPages(extractParamFromUrl('pagina', lastUrl.href))
+        setTotalPages(extractParamFromUrl('pagina', lastUrl.href));
         setDespesas(dados);
-
       } catch (e) {
         console.log(e);
       } finally {
         setLoading(false);
       }
-      };
-  
+    })();
+  }, [id, currentPage]);
+
   const ref = useRef(null);
 
   if (loading) return <Loader />;
@@ -56,13 +51,11 @@ const Despesas = ({ id }) => {
   if (ref.current) {
     window.scrollTo(0, ref.current.offsetTop);
   }
-  
+
   const onPageChange = (data) => {
     const selectedPage = data.selected + 1;
     setCurrentPage(selectedPage);
-  }
-
-
+  };
 
   return (
     <div className="despesas">
@@ -104,7 +97,6 @@ const Despesas = ({ id }) => {
           forcePage={currentPage - 1}
         />
       </div>
-
     </div>
   );
 };
