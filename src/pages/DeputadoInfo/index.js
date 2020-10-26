@@ -20,7 +20,6 @@ const DeputadoInfo = ({ match }) => {
       );
 
       setIsLoading(false);
-      console.log(data.dados);
       setDeputado(data.dados);
     }
 
@@ -31,9 +30,6 @@ const DeputadoInfo = ({ match }) => {
     <div className="deputado">
       {!isLoading && deputado !== null && (
         <>
-          <div className="title">
-            <div className="basic-info"></div>
-          </div>
           <div className="info-deputado">
             <section className="avatar"></section>
             <section className="info-card">
@@ -41,8 +37,7 @@ const DeputadoInfo = ({ match }) => {
                 <div className="info-card-avatar">
                   <figure className="deputado-photo">
                     <img
-                      width="114"
-                      height="152"
+                      width="150"
                       id="avatar"
                       alt={deputado.nomeCivil}
                       src={deputado.ultimoStatus.urlFoto}
@@ -55,16 +50,14 @@ const DeputadoInfo = ({ match }) => {
                   <Tag
                     label="Condição Eleitoral: "
                     value={deputado.ultimoStatus.condicaoEleitoral}
-                    white
-                    info
+                    warning
                   />
 
                   {deputado.ultimoStatus.situacao && (
                     <Tag
                       label="Situação: "
                       value={deputado.ultimoStatus.situacao}
-                      white
-                      info
+                      warning
                     />
                   )}
                 </div>
@@ -72,6 +65,7 @@ const DeputadoInfo = ({ match }) => {
                   <div className="info-card-data-personal">
                     <div className="info-card-data-header">
                       <h2 className="title is-4">{deputado.nomeCivil}</h2>
+                      <h3 >{deputado.ultimoStatus.siglaPartido}</h3>
                     </div>
                     <div className="info-card-data-section bordered">
                       <div className="info-card-data-subsection">
@@ -101,7 +95,6 @@ const DeputadoInfo = ({ match }) => {
                         </p>
                       </div>
                     </div>
-                    <hr className="divider" />
                     <div className="info-card-data-header">
                       <h3 className="title is-4">Gabinete</h3>
                     </div>
@@ -145,7 +138,7 @@ const DeputadoInfo = ({ match }) => {
 DeputadoInfo.propTypes = {
   match: PropTypes.shape({
     params: PropTypes.shape({
-      name: PropTypes.string.isRequired,
+      name: PropTypes.string,
       id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     }),
   }).isRequired,

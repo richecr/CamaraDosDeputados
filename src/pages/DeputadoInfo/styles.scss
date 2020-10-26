@@ -1,88 +1,106 @@
 .deputado {
-	padding: 1rem;
+  padding: 1rem;
 }
 
 .title {
-	text-align: center;
+  margin-bottom: 0 !important;
 }
 
 .deputado_photo {
-	max-width: 250px;
+  max-width: 250px;
 }
- #avatar {
-	border-radius: 50%;
- }
+
+#avatar {
+  border-radius: 50%;
+}
 
 .basic-info {
-	width: 500px;
-	margin: 0 auto;
-	display: flex;
-	align-items: center;
-	justify-content: space-around;
+  width: 500px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
 }
 
 .basic-info .tags {
-	margin: 0;
+  margin: 0;
 }
 
 .info-card {
-	width: 80%;
-	margin: 0 auto;
-	background-color: #fff;
-	border-radius: 5px;
-	padding: 1rem;
-	box-shadow: 0 2px 3px rgba(10, 10, 10, 0.1), 0 0 0 1px rgba(10, 10, 10, 0.1);
-	margin-top: 1rem;
+  width: 80%;
+  margin: 0 auto;
+  background-color: #fff;
+  border-radius: 5px;
+  padding: 1rem;
+  box-shadow: 0 2px 3px rgba(10, 10, 10, 0.1), 0 0 0 1px rgba(10, 10, 10, 0.1);
+  margin-top: 1rem;
 }
 
 .info-card-container {
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: flex-start;
-	align-items: center;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: center;
 }
 
 .info-card-data {
-	display: flex;
-	flex-grow: 8;
+  display: flex;
+  flex-grow: 8;
 }
 
-.info-card-avatar{
-	flex-grow: 2;
+.info-card-avatar {
+  flex-grow: 2;
+  flex-direction: column;
+  padding: 0 20px;
+  align-items: center;
+  display: flex;
 }
 
-.info-card-data-personal{
-	width: 100%;
+.info-card-avatar .tags .is-warning {
+  background-color: #f3a62d !important;
+  color: #fff !important;
 }
 
-.info-card-data-header{
-	display: flex;
-	flex-direction: row;
-	justify-content: space-between;
+.info-card-data-personal {
+  width: 100%;
 }
 
-.info-card-data-section{
-	display: flex;
-	justify-content: flex-start;
-	flex-direction: row;
-	padding: 20px 0;
+.info-card-data-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.info-card-data-section.bordered{
-	border-bottom: 1px solid #E5E5E5;
+.info-card-data-section {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: row;
+  padding: 20px 0;
+  margin-bottom: 20px;
+}
+
+.info-card-data-section.bordered {
+  border-bottom: 1px solid #E5E5E5;
   border-radius: 5px;
 }
 
-.info-card-data-subsection{
-	min-width: 20%;
-	width: fit-content;
-	margin: 0 20px 0 0;
+.info-card-data-subsection {
+  min-width: 20%;
+  width: fit-content;
+  margin: 0 20px 0 0;
+}
+
+.info-card-data-subsection .info {
+  font-size: 0.9rem;
+  color: #858585;
 }
 
 .info-text {
-	font-size: 1.2rem;
+  font-size: 1.2rem;
 }
 
 .info-text span {
-	margin: 0.5rem;
+  margin: 0.5rem;
 }
