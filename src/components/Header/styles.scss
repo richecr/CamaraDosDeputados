@@ -78,7 +78,7 @@ li {
   margin-left: 25px;
 }
 
-.headerRight ul li a{
+.headerRight ul li a {
   display: flex;
   align-items: center;
 }
@@ -99,4 +99,9 @@ li {
 // Fix last tag componet space
 .tags:last-child {
   margin-bottom: 1rem;
+}
+
+#logo-container {
+  width: 9%;
+  margin: 0 25px;
 }
