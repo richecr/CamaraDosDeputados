@@ -1,0 +1,136 @@
+.main-section{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  min-height: 85vh;
+  background-color: #fff;
+
+  .left-side{
+    display: flex;
+    flex-direction: column;
+    margin-top: 20vh;
+
+    h1{
+      font-weight: 600;
+      font-size: 48px;
+      line-height: 59px;
+    }
+
+    button{
+      font-weight: 500;
+      margin-top: 5vh;
+      height: 50px;
+      width: 165px;
+      size: 24px;
+      border: none;
+      border-radius: 6px;
+      transition: 0.2s;
+      color: #fff;
+      background: #F3A62D;
+    }
+
+    button:hover{
+      color: #F3A62D;
+      background: #fff;
+      cursor: pointer;
+    }
+  }
+
+  .right-side{
+    img{
+      margin-top: 30vh;
+      max-width: 30vw;
+    }
+  }
+}
+
+$background-paths: "../../assets/";
+$background-image1: '#{$background-paths}homeIllustration02.svg';
+$background-image2: '#{$background-paths}homeIllustration03.svg';
+
+.search-section{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-image: url('#{$background-image1}'), url('#{$background-image2}') ;
+  background-position: 95% 5%, 5% 95%;
+  background-repeat: no-repeat;
+  background-size: 30vw;
+
+  h1{
+    font-weight: 600;
+    font-size: 250%;
+    text-align: center;
+    margin-bottom: 10%;
+  }
+
+  .search-input{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #fff;
+    border-radius: 71px;
+    width: 50%;
+    height: 12%;
+    margin-bottom: 10%;
+
+    input{
+      margin-left: 10%;
+      font-weight: 400;
+      font-size: 150%;
+      max-width: 80%;
+      border: none;
+    }
+
+    .FaSearch{
+      color: #E5E5E5;
+      margin-right: 5%;
+    }
+  }
+}
+
+.info-section{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  background: #F3A62D;
+
+  h1{
+    color: #fff;
+    font-weight: 600;
+    font-size: 120%;
+    margin-bottom: 2%;
+  }
+
+  p{
+    color: #fff;
+  }
+
+  .left-side{
+    margin: 2.5% 2.5% 0 5%;
+  }
+
+  .right-side{
+    margin: 2.5% 5% 0 2.5%;
+  }
+}
+
+footer{
+  background: #F3A62D;
+
+  .link-list{
+    display: flex;
+    margin: 0 5% 0 5%;
+    justify-content: space-between;
+    padding-top: 2%;
+    padding-bottom: 2%;
+
+    a{
+      color: #fff;
+      font-weight: 700;
+      font-size: 150%;
+    }
+  }
+}
