@@ -8,7 +8,7 @@
   },
   "dependencies": {
     "@agney/react-loading": "^0.1.2",
-    "axios": "^0.18.1",
+    "axios": "^0.21.1",
     "bulma": "^0.7.5",
     "date-fns": "^2.16.1",
     "node-sass": "^4.12.0",
