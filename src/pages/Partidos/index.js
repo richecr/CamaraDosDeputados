@@ -3,64 +3,52 @@ import React, { useState } from 'react';
 import { useDadosAbertos } from '../../helpers';
 import Search from '../../components/Search';
 import PartidoCard from '../../components/PartidoCard';
+import Hr from '../../components/HorizontalRule';
+import NotFound from '../../components/NotFound';
+import Loader from '../../components/Loader';
+import Pagination from '../../components/Pagination';
 
 const Partidos = () => {
-  const [searchTerm, setSearchTerm] = useState('');
-  const { data: partidos, setParam, loading, ...pagination } = useDadosAbertos(
-    'partidos',
-    {
-      sigla: searchTerm,
-      ordenarPor: 'nome',
-    }
-  );
+  const [searchTerm] = useState('');
+  const {
+    data: partidos,
+    setParam,
+    loading,
+    totalPages,
+    setPage,
+  } = useDadosAbertos('partidos', {
+    sigla: searchTerm,
+    ordenarPor: 'nome',
+  });
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-
-    setParam('sigla', searchTerm);
+  const handleSubmit = (value) => {
+    setParam('sigla', value);
   };
 
-  const filters = [
-    {
-      name: 'id',
-      displayName: 'ID',
-    },
-    {
-      name: 'sigla',
-      displayName: 'Sigla',
-    },
-    {
-      name: 'nome',
-      displayName: 'Nome',
-    },
-    {
-      name: 'dataInicio',
-      displayName: 'Data de inicio',
-    },
-    {
-      name: 'dataFim',
-      displayName: 'Data de fim',
-    },
-  ];
+  const gotToPage = (page) => {
+    setPage(page.selected + 1);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
 
   return (
-    <Search
-      title="Partidos"
-      placeholder="Buscar partido pela sigla"
-      pagination={pagination}
-      filters={filters}
-      handleSubmit={handleSubmit}
-      searchTerm={searchTerm}
-      setSearchTerm={setSearchTerm}
-      setParam={setParam}
-      loading={loading}
-    >
-      {partidos.map(({ id, nome, sigla }) => (
-        <div className="column is-4" key={id}>
-          <PartidoCard id={id} nome={nome} sigla={sigla} />
-        </div>
-      ))}
-    </Search>
+    <div className="container">
+      <Search handleSubmit={handleSubmit} />
+
+      <Hr />
+      {loading && <Loader />}
+      <div className="content__list">
+        {partidos.map(({ id, nome, sigla }) => (
+          <div className="column is-4" key={id}>
+            <PartidoCard id={id} nome={nome} sigla={sigla} />
+          </div>
+        ))}
+        {partidos.length === 0 && !loading && <NotFound />}
+      </div>
+
+      <div>
+        <Pagination onPageChange={gotToPage} totalPages={totalPages} />
+      </div>
+    </div>
   );
 };
 
