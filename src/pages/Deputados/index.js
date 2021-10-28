@@ -39,14 +39,16 @@ const Deputados = () => {
       {loading && <Loader />}
       <div className="content__list">
         {deputados.map((deputado) => (
-          <DeputadoCard
-            key={deputado.id}
-            id={deputado.id}
-            nome={deputado.nome}
-            siglaPartido={deputado.siglaPartido}
-            urlFoto={deputado.urlFoto}
-            siglaUf={deputado.siglaUf}
-          />
+          <div className="column is-4" key={deputado.id}>
+            <DeputadoCard
+              key={deputado.id}
+              id={deputado.id}
+              nome={deputado.nome}
+              siglaPartido={deputado.siglaPartido}
+              urlFoto={deputado.urlFoto}
+              siglaUf={deputado.siglaUf}
+            />
+          </div>
         ))}
         {deputados.length === 0 && !loading && <NotFound />}
       </div>
