@@ -1,0 +1,70 @@
+.proposicoes-deputado {
+  width: 80%;
+  margin: 32px auto;
+  padding: 20px 24px;
+  border: 1px solid #e4e6e8;
+  border-radius: 6px;
+  background: #fff;
+
+  &__header {
+    margin-bottom: 12px;
+
+    p {
+      margin-top: 6px;
+      color: #666;
+      font-size: 14px;
+    }
+  }
+
+  &__item {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
+    padding: 16px 0;
+    border-top: 1px solid #e8eaec;
+
+    a {
+      flex: 0 0 auto;
+      color: #4a3b16;
+      font-weight: 600;
+    }
+  }
+
+  &__summary {
+    min-width: 0;
+
+    h3 {
+      margin: 0 0 6px;
+      color: #242424;
+      font-weight: 700;
+    }
+
+    p {
+      margin: 0 0 6px;
+    }
+
+    time {
+      color: #666;
+      font-size: 13px;
+    }
+  }
+
+  &__source {
+    margin-top: 12px;
+    color: #666;
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 640px) {
+  .proposicoes-deputado {
+    width: 100%;
+    padding: 16px;
+
+    &__item {
+      flex-direction: column;
+      gap: 8px;
+    }
+  }
+}

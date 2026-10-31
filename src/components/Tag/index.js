@@ -1,7 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-function Tag({ label, value, info, primary, white, warning }) {
+function Tag({
+  label,
+  value,
+  info = false,
+  primary = false,
+  white = false,
+  warning = false,
+}) {
   return (
     <h3 className="tags has-addons info-text">
       <span className={`tag  ${primary && 'is-primary'} ${info && 'is-info'}`}>
@@ -23,13 +30,6 @@ Tag.propTypes = {
   primary: PropTypes.bool,
   white: PropTypes.bool,
   warning: PropTypes.bool,
-};
-
-Tag.defaultProps = {
-  info: false,
-  primary: false,
-  white: false,
-  warning: false,
 };
 
 export default Tag;

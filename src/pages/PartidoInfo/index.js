@@ -1,30 +1,68 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import PropTypes from 'prop-types';
+import { useParams } from 'react-router-dom';
+import Loader from '../../components/Loader';
+import NotFound from '../../components/NotFound';
+import RequestError from '../../components/RequestError';
 
 import noImage from '../../assets/placeholder-user.png';
 import './styles.scss';
 
-const PartidoInfo = ({ match }) => {
-  const [partido, setPartido] = useState({});
+const PartidoInfo = () => {
+  const [partido, setPartido] = useState(null);
   const [status, setStatus] = useState({});
   const [lider, setLider] = useState({});
-  const { id } = match.params;
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState(null);
+  const [requestId, setRequestId] = useState(0);
+  const { id } = useParams();
 
   useEffect(() => {
-    async function fetchData() {
-      const response = await axios.get(
-        `https://dadosabertos.camara.leg.br/api/v2/partidos/${id}`
-      );
-      const { dados } = response.data;
+    const controller = new AbortController();
 
-      setPartido(dados);
-      setStatus(dados.status);
-      setLider(dados.status.lider);
+    async function fetchData() {
+      setIsLoading(true);
+      setError(null);
+
+      try {
+        const response = await axios.get(
+          `https://dadosabertos.camara.leg.br/api/v2/partidos/${id}`,
+          { signal: controller.signal }
+        );
+        const { dados } = response.data;
+
+        if (!controller.signal.aborted) {
+          setPartido(dados || null);
+          setStatus(dados?.status || {});
+          setLider(dados?.status?.lider || {});
+        }
+      } catch (requestError) {
+        if (!controller.signal.aborted) {
+          setError(requestError);
+        }
+      } finally {
+        if (!controller.signal.aborted) {
+          setIsLoading(false);
+        }
+      }
     }
 
     fetchData();
-  }, [id]);
+    return () => controller.abort();
+  }, [id, requestId]);
+
+  if (isLoading) return <Loader />;
+
+  if (error) {
+    return (
+      <RequestError
+        message="Não foi possível carregar os dados deste partido."
+        onRetry={() => setRequestId((currentRequestId) => currentRequestId + 1)}
+      />
+    );
+  }
+
+  if (!partido) return <NotFound text="Partido não encontrado." />;
 
   return (
     <div className="columns divPartido">
@@ -50,22 +88,18 @@ const PartidoInfo = ({ match }) => {
           </div>
           <div className="informations">
             <div>
-              <label>Situação: </label>
-              <label className="backgroundYellow">{status.situacao}</label>
+              <span>Situação: </span>
+              <span className="backgroundYellow">{status.situacao}</span>
             </div>
             <div>
-              <label>Total de posse: </label>
-              <label className="backgroundYellow">{status.totalPosse}</label>
+              <span>Total de posse: </span>
+              <span className="backgroundYellow">{status.totalPosse}</span>
             </div>
             <div>
-              <label>Total de membros: </label>
-              <label className="backgroundYellow">{status.totalMembros}</label>
+              <span>Total de membros: </span>
+              <span className="backgroundYellow">{status.totalMembros}</span>
             </div>
 
-            <div>
-              <label>Total de membros: </label>
-              <label className="backgroundYellow">{status.totalMembros}</label>
-            </div>
           </div>
         </div>
       </div>
@@ -86,15 +120,6 @@ const PartidoInfo = ({ match }) => {
       </div>
     </div>
   );
-};
-
-PartidoInfo.propTypes = {
-  match: PropTypes.shape({
-    params: PropTypes.shape({
-      name: PropTypes.string.isRequired,
-      id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-    }),
-  }).isRequired,
 };
 
 export default PartidoInfo;

@@ -3,12 +3,11 @@ import PropTypes from 'prop-types';
 
 import './styles.scss';
 
-const CardFooterItem = ({ label, icon, tooltip }) => {
+const CardFooterItem = ({ label, icon, title }) => {
   return (
     <div
       className="card-footer-item__container"
-      data-tip={tooltip}
-      data-tooltip="Tooltip Text"
+      title={title}
     >
       {icon}
       {label}
@@ -18,8 +17,8 @@ const CardFooterItem = ({ label, icon, tooltip }) => {
 
 CardFooterItem.propTypes = {
   label: PropTypes.string.isRequired,
-  icon: PropTypes.func.isRequired,
-  tooltip: PropTypes.string.isRequired,
+  icon: PropTypes.element.isRequired,
+  title: PropTypes.string.isRequired,
 };
 
 export default CardFooterItem;

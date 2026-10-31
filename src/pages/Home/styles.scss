@@ -1,45 +1,60 @@
-.main-section{
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  min-height: 85vh;
+.main-section {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  align-items: center;
+  gap: 48px;
+  min-height: 78vh;
+  padding: 64px 6vw;
   background-color: #fff;
 
-  .left-side{
+  .left-side {
     display: flex;
     flex-direction: column;
-    margin-top: 20vh;
+    max-width: 660px;
 
-    h1{
+    h1 {
+      margin: 0 0 20px;
+      font-size: 40px;
       font-weight: 600;
-      font-size: 48px;
-      line-height: 59px;
+      line-height: 1.15;
     }
 
-    button{
-      font-weight: 500;
-      margin-top: 5vh;
-      height: 50px;
-      width: 165px;
-      size: 24px;
-      border: none;
-      border-radius: 6px;
-      transition: 0.2s;
-      color: #fff;
-      background: #F3A62D;
+    p {
+      max-width: 520px;
+      margin: 0;
+      font-size: 18px;
     }
 
-    button:hover{
-      color: #F3A62D;
-      background: #fff;
-      cursor: pointer;
+    .home-cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: fit-content;
+      min-height: 48px;
+      margin-top: 28px;
+      padding: 0 24px;
+      border-radius: 4px;
+      color: #242424;
+      background: #f3a62d;
+      font-weight: 700;
+      text-decoration: none;
+      transition: background-color 0.2s ease;
+    }
+
+    .home-cta:hover {
+      background: #e6951b;
     }
   }
 
-  .right-side{
-    img{
-      margin-top: 30vh;
-      max-width: 30vw;
+  .right-side {
+    display: flex;
+    justify-content: center;
+
+    img {
+      display: block;
+      width: 100%;
+      max-width: 430px;
+      height: auto;
     }
   }
 }
@@ -48,89 +63,114 @@ $background-paths: "../../assets/";
 $background-image1: '#{$background-paths}homeIllustration02.svg';
 $background-image2: '#{$background-paths}homeIllustration03.svg';
 
-.search-section{
+.search-section {
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-  background-image: url('#{$background-image1}'), url('#{$background-image2}') ;
+  min-height: 620px;
+  padding: 80px 24px;
+  background-image: url('#{$background-image1}'), url('#{$background-image2}');
   background-position: 95% 5%, 5% 95%;
   background-repeat: no-repeat;
   background-size: 30vw;
 
-  h1{
+  .search__container--home .title__label {
+    margin-bottom: 12px;
+    font-size: 32px;
     font-weight: 600;
-    font-size: 250%;
     text-align: center;
-    margin-bottom: 10%;
-  }
-
-  .search-input{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: #fff;
-    border-radius: 71px;
-    width: 50%;
-    height: 12%;
-    margin-bottom: 10%;
-
-    input{
-      margin-left: 10%;
-      font-weight: 400;
-      font-size: 150%;
-      max-width: 80%;
-      border: none;
-    }
-
-    .FaSearch{
-      color: #E5E5E5;
-      margin-right: 5%;
-    }
   }
 }
 
-.info-section{
+.info-section {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  background: #F3A62D;
+  gap: 40px;
+  padding: 32px 5vw;
+  background: #f3a62d;
 
-  h1{
+  h1 {
     color: #fff;
     font-weight: 600;
     font-size: 120%;
     margin-bottom: 2%;
   }
 
-  p{
+  p {
     color: #fff;
   }
 
-  .left-side{
-    margin: 2.5% 2.5% 0 5%;
-  }
-
-  .right-side{
-    margin: 2.5% 5% 0 2.5%;
+  .left-side,
+  .right-side {
+    max-width: 520px;
   }
 }
 
-footer{
-  background: #F3A62D;
+footer {
+  background: #f3a62d;
 
-  .link-list{
+  .link-list {
     display: flex;
-    margin: 0 5% 0 5%;
+    flex-wrap: wrap;
+    gap: 20px 36px;
+    margin: 0;
     justify-content: space-between;
-    padding-top: 2%;
-    padding-bottom: 2%;
+    padding: 24px 5vw;
 
-    a{
+    a {
       color: #fff;
       font-weight: 700;
-      font-size: 150%;
+      font-size: 18px;
+    }
+  }
+}
+
+@media (max-width: 760px) {
+  .main-section {
+    grid-template-columns: 1fr;
+    gap: 36px;
+    min-height: 0;
+    padding: 56px 24px;
+
+    .left-side {
+      h1 {
+        font-size: 36px;
+      }
+    }
+
+    .right-side img {
+      max-width: 360px;
+    }
+  }
+
+  .search-section {
+    min-height: 480px;
+    background-size: 220px;
+  }
+
+  .info-section {
+    flex-direction: column;
+    gap: 20px;
+    padding: 32px 24px;
+  }
+}
+
+@media (max-width: 420px) {
+  .main-section {
+    padding: 40px 20px;
+
+    .left-side h1 {
+      font-size: 32px;
+    }
+  }
+
+  .search-section {
+    padding: 56px 20px;
+    background-size: 150px;
+
+    .search__container--home .title__label {
+      font-size: 26px;
     }
   }
 }

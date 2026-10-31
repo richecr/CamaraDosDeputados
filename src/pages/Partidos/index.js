@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { useSearchParams } from 'react-router-dom';
 
 import { useDadosAbertos } from '../../helpers';
 import Search from '../../components/Search';
@@ -7,13 +8,17 @@ import Hr from '../../components/HorizontalRule';
 import NotFound from '../../components/NotFound';
 import Loader from '../../components/Loader';
 import Pagination from '../../components/Pagination';
+import RequestError from '../../components/RequestError';
 
 const Partidos = () => {
-  const [searchTerm] = useState('');
+  const [searchParams] = useSearchParams();
+  const searchTerm = searchParams.get('sigla') || '';
   const {
     data: partidos,
     setParam,
     loading,
+    error,
+    retry,
     totalPages,
     setPage,
   } = useDadosAbertos('partidos', {
@@ -32,22 +37,34 @@ const Partidos = () => {
 
   return (
     <div className="container">
-      <Search handleSubmit={handleSubmit} />
+      <Search
+        title="Resultado da pesquisa de partidos"
+        label="Sigla do partido"
+        placeholder="Pesquise pela sigla"
+        initialValue={searchTerm}
+        submitLabel="Pesquisar partidos"
+        handleSubmit={handleSubmit}
+      />
 
       <Hr />
       {loading && <Loader />}
-      <div className="content__list">
-        {partidos.map(({ id, nome, sigla }) => (
-          <div className="column is-4" key={id}>
-            <PartidoCard id={id} nome={nome} sigla={sigla} />
+      {error && !loading && (
+        <RequestError onRetry={retry} message="Não foi possível carregar os partidos." />
+      )}
+      {!loading && !error && (
+        <>
+          <div className="content__list">
+            {partidos.map(({ id, nome, sigla }) => (
+              <div className="column is-4" key={id}>
+                <PartidoCard id={id} nome={nome} sigla={sigla} />
+              </div>
+            ))}
+            {partidos.length === 0 && <NotFound />}
           </div>
-        ))}
-        {partidos.length === 0 && !loading && <NotFound />}
-      </div>
 
-      <div>
-        <Pagination onPageChange={gotToPage} totalPages={totalPages} />
-      </div>
+          <Pagination onPageChange={gotToPage} totalPages={totalPages} />
+        </>
+      )}
     </div>
   );
 };

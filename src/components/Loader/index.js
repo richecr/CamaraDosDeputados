@@ -1,11 +1,10 @@
 import './styles.scss';
 
 import React from 'react';
-import { Circles } from '@agney/react-loading';
 
 const Loader = () => (
-  <div className="loader-wrapper">
-    <Circles />
+  <div className="loader-wrapper" role="status" aria-live="polite">
+    <span className="loader-spinner" aria-hidden="true" />
     <h4>Carregando...</h4>
   </div>
 );

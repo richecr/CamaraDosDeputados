@@ -1,4 +1,4 @@
-@import '../Header//variables.scss';
+@use '../Header/variables' as *;
 
 .partido-card {
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',

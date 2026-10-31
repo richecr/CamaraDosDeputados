@@ -1,9 +1,11 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
-import Axios from 'axios';
+import axios from 'axios';
 import { extractParamFromUrl } from '../../helpers';
 import Paginacao from '../Pagination';
 import Loader from '../Loader';
+import NotFound from '../NotFound';
+import RequestError from '../RequestError';
 import { MdAttachMoney } from 'react-icons/md';
 
 import './styles.scss';
@@ -13,14 +15,19 @@ const Despesas = ({ id }) => {
   const [currentPage, setCurrentPage] = useState(1);
   const [loading, setLoading] = useState(true);
   const [despesas, setDespesas] = useState([]);
+  const [error, setError] = useState(null);
+  const [requestId, setRequestId] = useState(0);
 
   useEffect(() => {
+    const controller = new AbortController();
+
     (async () => {
       setLoading(true);
+      setError(null);
       try {
         const {
           data: { dados, links },
-        } = await Axios.get(
+        } = await axios.get(
           `https://dadosabertos.camara.leg.br/api/v2/deputados/${id}/despesas`,
           {
             params: {
@@ -29,27 +36,46 @@ const Despesas = ({ id }) => {
               itens: 10,
               pagina: currentPage,
             },
+            signal: controller.signal,
           }
         );
 
-        const lastUrl = links.find((link) => link.rel === 'last');
+        if (controller.signal.aborted) return;
 
-        setTotalPages(extractParamFromUrl('pagina', lastUrl.href));
+        const lastUrl = Array.isArray(links)
+          ? links.find((link) => link.rel === 'last')
+          : null;
+
+        if (lastUrl) {
+          setTotalPages(extractParamFromUrl('pagina', lastUrl.href) || 1);
+        }
         setDespesas(dados);
-      } catch (e) {
-        console.log(e);
+      } catch (requestError) {
+        if (!controller.signal.aborted) {
+          setError(requestError);
+        }
       } finally {
-        setLoading(false);
+        if (!controller.signal.aborted) {
+          setLoading(false);
+        }
       }
     })();
-  }, [id, currentPage]);
 
-  const ref = useRef(null);
+    return () => controller.abort();
+  }, [id, currentPage, requestId]);
 
   if (loading) return <Loader />;
 
-  if (ref.current) {
-    window.scrollTo(0, ref.current.offsetTop);
+  if (error) {
+    return (
+      <div className="despesas">
+        <h2 className="title is-4">Despesas</h2>
+        <RequestError
+          message="Não foi possível carregar as despesas."
+          onRetry={() => setRequestId((currentRequestId) => currentRequestId + 1)}
+        />
+      </div>
+    );
   }
 
   const onPageChange = (data) => {
@@ -60,6 +86,9 @@ const Despesas = ({ id }) => {
   return (
     <div className="despesas">
       <h2 className="title is-4">Despesas</h2>
+      {despesas.length === 0 && (
+        <NotFound text="Nenhuma despesa encontrada para este período." />
+      )}
       {despesas.map((despesa) => {
         return (
           <div
@@ -90,13 +119,13 @@ const Despesas = ({ id }) => {
           </div>
         );
       })}
-      <div>
+      {totalPages > 1 && (
         <Paginacao
           totalPages={totalPages}
           onPageChange={onPageChange}
           forcePage={currentPage - 1}
         />
-      </div>
+      )}
     </div>
   );
 };

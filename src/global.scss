@@ -1,9 +1,10 @@
-* {
-  outline: none;
-}
-
 html {
   height: 100%;
+}
+
+:focus-visible {
+  outline: 3px solid #22577a;
+  outline-offset: 3px;
 }
 
 body {
@@ -14,7 +15,7 @@ body {
   background-color: #f7f8f9;
   color: #2f2f2f;
   min-height: 100%;
-  min-width: fit-content;
+  width: 100%;
 }
 
 .content__list {

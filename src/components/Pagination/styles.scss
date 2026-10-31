@@ -1,4 +1,4 @@
-@import '../Header/variables.scss';
+@use '../Header/variables' as *;
 
 .paginate__container {
   background-color: #fff;

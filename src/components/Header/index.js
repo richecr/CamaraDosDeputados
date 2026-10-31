@@ -32,7 +32,14 @@ export default function Header() {
       <div className="headerRight">
         <ul>
           <li>
-            <FaSearch className="iconMenu" size={25} />
+            <Link
+              to="/deputados/"
+              className="iconMenu"
+              aria-label="Pesquisar deputados"
+              title="Pesquisar deputados"
+            >
+              <FaSearch size={25} aria-hidden="true" />
+            </Link>
           </li>
           <li>
             <a

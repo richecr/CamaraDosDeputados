@@ -1,34 +1,69 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import PropTypes from 'prop-types';
+import { useParams } from 'react-router-dom';
 import Despesas from '../../components/Despesas';
 import Tag from '../../components/Tag';
+import Loader from '../../components/Loader';
+import NotFound from '../../components/NotFound';
+import RequestError from '../../components/RequestError';
+import ProposicoesDeputado from '../../components/ProposicoesDeputado';
 
 import noImage from '../../assets/placeholder-user.png';
 
 import './styles.scss';
 
-const DeputadoInfo = ({ match }) => {
+const DeputadoInfo = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [deputado, setDeputado] = useState(null);
-  const { id } = match.params;
+  const [error, setError] = useState(null);
+  const [requestId, setRequestId] = useState(0);
+  const { id } = useParams();
 
   useEffect(() => {
-    async function fetchDeputado() {
-      const { data } = await axios.get(
-        `https://dadosabertos.camara.leg.br/api/v2/deputados/${id}`
-      );
+    const controller = new AbortController();
 
-      setIsLoading(false);
-      setDeputado(data.dados);
+    async function fetchDeputado() {
+      setIsLoading(true);
+      setError(null);
+
+      try {
+        const { data } = await axios.get(
+          `https://dadosabertos.camara.leg.br/api/v2/deputados/${id}`,
+          { signal: controller.signal }
+        );
+
+        if (!controller.signal.aborted) {
+          setDeputado(data.dados || null);
+        }
+      } catch (requestError) {
+        if (!controller.signal.aborted) {
+          setError(requestError);
+        }
+      } finally {
+        if (!controller.signal.aborted) {
+          setIsLoading(false);
+        }
+      }
     }
 
     fetchDeputado();
-  }, [id]);
+
+    return () => controller.abort();
+  }, [id, requestId]);
 
   return (
     <div className="deputado">
-      {!isLoading && deputado !== null && (
+      {isLoading && <Loader />}
+      {error && !isLoading && (
+        <RequestError
+          message="Não foi possível carregar os dados deste deputado."
+          onRetry={() => setRequestId((currentRequestId) => currentRequestId + 1)}
+        />
+      )}
+      {!isLoading && !error && !deputado && (
+        <NotFound text="Deputado não encontrado." />
+      )}
+      {!isLoading && !error && deputado !== null && (
         <>
           <div className="info-deputado">
             <section className="avatar"></section>
@@ -127,21 +162,13 @@ const DeputadoInfo = ({ match }) => {
               </div>
             </section>
 
+            <ProposicoesDeputado id={id} />
             <Despesas id={id} />
           </div>
         </>
       )}
     </div>
   );
-};
-
-DeputadoInfo.propTypes = {
-  match: PropTypes.shape({
-    params: PropTypes.shape({
-      name: PropTypes.string,
-      id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-    }),
-  }).isRequired,
 };
 
 export default DeputadoInfo;

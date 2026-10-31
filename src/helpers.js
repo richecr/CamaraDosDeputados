@@ -1,17 +1,20 @@
-import Axios from 'axios';
+import axios from 'axios';
 import { useState, useEffect } from 'react';
 
 export const extractParamFromUrl = (key, url) => {
-  const splitted = url.split(`${key}=`)[1];
+  try {
+    const value = new URL(
+      url,
+      'https://dadosabertos.camara.leg.br'
+    ).searchParams.get(key);
+    const number = Number(value);
 
-  if (splitted) {
-    const paramMatch = splitted.match(/(.+)&/);
-    if (paramMatch !== null) {
-      return Number(paramMatch[1]);
-    }
+    return value !== null && value !== '' && Number.isFinite(number)
+      ? number
+      : null;
+  } catch {
+    return null;
   }
-
-  return null;
 };
 
 export const useDadosAbertos = (
@@ -30,12 +33,14 @@ export const useDadosAbertos = (
   const [lastPage, setLastPage] = useState(0);
   const [totalPages, setTotalPages] = useState(0);
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
+  const [requestId, setRequestId] = useState(0);
 
   const setParam = (key, value) => {
-    setParams({
-      ...params,
+    setParams((currentParams) => ({
+      ...currentParams,
       [key]: value,
-    });
+    }));
   };
 
   const setPage = (page) => {
@@ -58,16 +63,13 @@ export const useDadosAbertos = (
   };
 
   const updatePagination = (links) => {
-    // eslint-disable-next-line
     for (const { rel, href } of links) {
       const page = extractParamFromUrl('pagina', href);
 
       if (!page) {
-        // eslint-disable-next-line
         continue;
       }
 
-      // eslint-disable-next-line
       switch (rel) {
         case 'first':
           setFirstPage(page);
@@ -79,45 +81,63 @@ export const useDadosAbertos = (
     }
   };
 
+  const retry = () => {
+    setRequestId((currentRequestId) => currentRequestId + 1);
+  };
+
   useEffect(() => {
+    const controller = new AbortController();
+
     const fetch = async () => {
       setLoading(true);
+      setError(null);
+      setFirstPage(0);
+      setLastPage(0);
+      setTotalPages(0);
 
       try {
         const {
           data: { dados, links },
-        } = await Axios.get(
+        } = await axios.get(
           `https://dadosabertos.camara.leg.br/api/v2/${resource}`,
           {
             params,
+            signal: controller.signal,
           }
         );
 
+        if (controller.signal.aborted) return;
+
         setData(dados);
+        const paginationLinks = Array.isArray(links) ? links : [];
+        const lastPageUrl = paginationLinks.find((link) => link.rel === 'last');
 
-        if (!Array.isArray(links)) {
-          return;
+        setTotalPages(
+          lastPageUrl ? extractParamFromUrl('pagina', lastPageUrl.href) || 0 : 0
+        );
+        updatePagination(paginationLinks);
+      } catch (requestError) {
+        if (!controller.signal.aborted) {
+          setError(requestError);
         }
-
-        const lastPageUrl = links.filter((link) => link.rel === 'last');
-
-        setTotalPages(extractParamFromUrl('pagina', lastPageUrl[0].href));
-
-        updatePagination(links);
-      } catch (e) {
-        // do something?
+      } finally {
+        if (!controller.signal.aborted) {
+          setLoading(false);
+        }
       }
-
-      setLoading(false);
     };
 
     fetch();
-  }, [params, resource]);
+
+    return () => controller.abort();
+  }, [params, resource, requestId]);
 
   return {
     data,
     params,
     loading,
+    error,
+    retry,
     setPage,
     setParam,
     nextPage,

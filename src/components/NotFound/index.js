@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 import './styles.scss';
 
-const NotFound = ({ text }) => {
+const NotFound = ({ text = 'Nenhum registro encontrado' }) => {
   return (
     <div className="not-found">
       <BiError />
@@ -15,10 +15,6 @@ const NotFound = ({ text }) => {
 
 NotFound.propTypes = {
   text: PropTypes.string,
-};
-
-NotFound.defaultProps = {
-  text: 'Nenhum registro encontrado',
 };
 
 export default NotFound;

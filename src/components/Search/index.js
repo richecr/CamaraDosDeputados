@@ -1,41 +1,55 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { FaSearch } from 'react-icons/fa';
 import PropTypes from 'prop-types';
-import Tooltip from 'react-tooltip-lite';
 
 import './styles.scss';
 
-const Search = ({ handleSubmit }) => {
-  function keyPress({ key, target }) {
-    if (key === 'Enter') {
-      handleSubmit(target.value);
-    }
+const Search = ({
+  handleSubmit,
+  title = 'Resultado da pesquisa',
+  label = 'Nome do deputado',
+  placeholder = 'Pesquise pelo nome',
+  initialValue = '',
+  className = '',
+  submitLabel = 'Pesquisar',
+}) => {
+  const [value, setValue] = useState(initialValue);
+
+  function submitSearch(event) {
+    event.preventDefault();
+    handleSubmit(value.trim());
   }
 
   return (
-    <div className="search__container">
-      <h2 className="title__label">Resultado da Pesquisa:</h2>
-
-      <div className="search__field__container">
-        <Tooltip
-          content="Digite o nome e pressione enter"
-          arrow={false}
-          direction="down"
-        >
-          <input
-            type="text"
-            placeholder="Pesquise pelo nome"
-            onKeyPress={keyPress}
-          />
-        </Tooltip>
-        <FaSearch />
-      </div>
+    <div className={`search__container ${className}`}>
+      <h2 className="title__label">{title}</h2>
+      <form className="search__field__container" onSubmit={submitSearch}>
+        <label className="visually-hidden" htmlFor="deputy-search">
+          {label}
+        </label>
+        <input
+          id="deputy-search"
+          type="text"
+          placeholder={placeholder}
+          value={value}
+          onChange={(event) => setValue(event.target.value)}
+        />
+        <button type="submit" aria-label={submitLabel}>
+          <FaSearch aria-hidden="true" />
+        </button>
+      </form>
     </div>
   );
 };
 
 Search.propTypes = {
   handleSubmit: PropTypes.func.isRequired,
+  title: PropTypes.string,
+  label: PropTypes.string,
+  placeholder: PropTypes.string,
+  initialValue: PropTypes.string,
+  className: PropTypes.string,
+  submitLabel: PropTypes.string,
 };
 
 export default Search;

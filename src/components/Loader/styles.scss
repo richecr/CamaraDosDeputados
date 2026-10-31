@@ -11,9 +11,18 @@
     font-size: 20px;
   }
 
-  svg {
-    color: #f3a62d;
-    width: 100px;
-    height: 100px;
+  .loader-spinner {
+    width: 48px;
+    height: 48px;
+    border: 5px solid #f3a62d;
+    border-bottom-color: transparent;
+    border-radius: 50%;
+    animation: loader-spin 0.8s linear infinite;
+  }
+}
+
+@keyframes loader-spin {
+  to {
+    transform: rotate(360deg);
   }
 }

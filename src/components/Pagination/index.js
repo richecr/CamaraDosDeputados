@@ -6,10 +6,10 @@ import './styles.scss';
 
 const Paginacao = ({
   totalPages,
-  pageRange,
+  pageRange = 5,
   onPageChange,
-  nextLabel,
-  previousLabel,
+  nextLabel = 'Próximo',
+  previousLabel = 'Anterior',
   ...rest
 }) => (
   <ReactPaginate
@@ -34,12 +34,6 @@ Paginacao.propTypes = {
   onPageChange: PropTypes.func.isRequired,
   nextLabel: PropTypes.string,
   previousLabel: PropTypes.string,
-};
-
-Paginacao.defaultProps = {
-  nextLabel: 'Proximo',
-  previousLabel: 'Anterior',
-  pageRange: 5,
 };
 
 export default Paginacao;

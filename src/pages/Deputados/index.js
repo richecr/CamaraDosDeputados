@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { useSearchParams } from 'react-router-dom';
 import { useDadosAbertos } from '../../helpers';
 import Search from '../../components/Search';
 import Hr from '../../components/HorizontalRule';
@@ -6,15 +7,19 @@ import DeputadoCard from '../../components/DeputadoCard';
 import NotFound from '../../components/NotFound';
 import Loader from '../../components/Loader';
 import Pagination from '../../components/Pagination';
+import RequestError from '../../components/RequestError';
 
 import './styles.scss';
 
 const Deputados = () => {
-  const [searchTerm] = useState('');
+  const [searchParams] = useSearchParams();
+  const searchTerm = searchParams.get('nome') || '';
   const {
     data: deputados,
     setParam,
     loading,
+    error,
+    retry,
     totalPages,
     setPage,
   } = useDadosAbertos('deputados', {
@@ -34,28 +39,39 @@ const Deputados = () => {
 
   return (
     <div className="container">
-      <Search handleSubmit={handleSubmit} />
+      <Search
+        handleSubmit={handleSubmit}
+        initialValue={searchTerm}
+        submitLabel="Pesquisar deputados"
+      />
       <Hr />
       {loading && <Loader />}
-      <div className="content__list">
-        {deputados.map((deputado) => (
-          <div className="column is-4" key={deputado.id}>
-            <DeputadoCard
-              key={deputado.id}
-              id={deputado.id}
-              nome={deputado.nome}
-              siglaPartido={deputado.siglaPartido}
-              urlFoto={deputado.urlFoto}
-              siglaUf={deputado.siglaUf}
-            />
+      {error && !loading && (
+        <RequestError onRetry={retry} message="Não foi possível carregar os deputados." />
+      )}
+      {!loading && !error && (
+        <>
+          <div className="content__list">
+            {deputados.map((deputado) => (
+              <div
+                className="column is-4-desktop is-6-tablet is-12-mobile"
+                key={deputado.id}
+              >
+                <DeputadoCard
+                  id={deputado.id}
+                  nome={deputado.nome}
+                  siglaPartido={deputado.siglaPartido}
+                  urlFoto={deputado.urlFoto}
+                  siglaUf={deputado.siglaUf}
+                />
+              </div>
+            ))}
+            {deputados.length === 0 && <NotFound />}
           </div>
-        ))}
-        {deputados.length === 0 && !loading && <NotFound />}
-      </div>
 
-      <div>
-        <Pagination onPageChange={gotToPage} totalPages={totalPages} />
-      </div>
+          <Pagination onPageChange={gotToPage} totalPages={totalPages} />
+        </>
+      )}
     </div>
   );
 };
