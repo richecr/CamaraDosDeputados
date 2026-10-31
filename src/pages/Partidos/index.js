@@ -19,6 +19,7 @@ const Partidos = () => {
     loading,
     error,
     retry,
+    params,
     totalPages,
     setPage,
   } = useDadosAbertos('partidos', {
@@ -62,7 +63,13 @@ const Partidos = () => {
             {partidos.length === 0 && <NotFound />}
           </div>
 
-          <Pagination onPageChange={gotToPage} totalPages={totalPages} />
+          {totalPages > 1 && (
+            <Pagination
+              onPageChange={gotToPage}
+              totalPages={totalPages}
+              forcePage={(params.pagina || 1) - 1}
+            />
+          )}
         </>
       )}
     </div>

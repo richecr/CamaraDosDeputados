@@ -162,7 +162,7 @@ const DeputadoInfo = () => {
               </div>
             </section>
 
-            <ProposicoesDeputado id={id} />
+            <ProposicoesDeputado id={id} key={id} />
             <Despesas id={id} />
           </div>
         </>

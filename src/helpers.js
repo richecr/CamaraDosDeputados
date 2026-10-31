@@ -17,6 +17,26 @@ export const extractParamFromUrl = (key, url) => {
   }
 };
 
+export const getPaginationState = (links = [], currentPage = 1) => {
+  let firstPage = 1;
+  let lastPage = null;
+  let hasNextPage = false;
+
+  for (const { rel, href } of links) {
+    const page = extractParamFromUrl('pagina', href);
+
+    if (rel === 'first' && page) firstPage = page;
+    if (rel === 'last' && page) lastPage = page;
+    if (rel === 'next' && page) hasNextPage = true;
+  }
+
+  if (lastPage === null) {
+    lastPage = hasNextPage ? currentPage + 1 : Math.max(firstPage, currentPage);
+  }
+
+  return { firstPage, lastPage, totalPages: lastPage };
+};
+
 export const useDadosAbertos = (
   resource,
   paramsDefault = {
@@ -25,13 +45,13 @@ export const useDadosAbertos = (
     ordem: 'ASC',
   }
 ) => {
-  const [params, setParams] = useState(paramsDefault);
+  const [params, setParams] = useState({ pagina: 1, ...paramsDefault });
   const [data, setData] = useState([
     //
   ]);
-  const [firstPage, setFirstPage] = useState(0);
-  const [lastPage, setLastPage] = useState(0);
-  const [totalPages, setTotalPages] = useState(0);
+  const [firstPage, setFirstPage] = useState(1);
+  const [lastPage, setLastPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(1);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [requestId, setRequestId] = useState(0);
@@ -40,18 +60,22 @@ export const useDadosAbertos = (
     setParams((currentParams) => ({
       ...currentParams,
       [key]: value,
+      ...(key === 'pagina' ? {} : { pagina: 1 }),
     }));
   };
 
   const setPage = (page) => {
-    /**
-     * Skip if page is greater than last page or less than first page.
-     */
-    if (page > lastPage || page < firstPage) {
+    const targetPage = Number(page);
+
+    if (
+      !Number.isInteger(targetPage) ||
+      targetPage < firstPage ||
+      (lastPage > 0 && targetPage > lastPage)
+    ) {
       return;
     }
 
-    setParam('pagina', page);
+    setParam('pagina', targetPage);
   };
 
   const nextPage = () => {
@@ -60,25 +84,6 @@ export const useDadosAbertos = (
 
   const prevPage = () => {
     setPage(params.pagina - 1);
-  };
-
-  const updatePagination = (links) => {
-    for (const { rel, href } of links) {
-      const page = extractParamFromUrl('pagina', href);
-
-      if (!page) {
-        continue;
-      }
-
-      switch (rel) {
-        case 'first':
-          setFirstPage(page);
-          break;
-        case 'last':
-          setLastPage(page);
-          break;
-      }
-    }
   };
 
   const retry = () => {
@@ -91,9 +96,6 @@ export const useDadosAbertos = (
     const fetch = async () => {
       setLoading(true);
       setError(null);
-      setFirstPage(0);
-      setLastPage(0);
-      setTotalPages(0);
 
       try {
         const {
@@ -110,12 +112,14 @@ export const useDadosAbertos = (
 
         setData(dados);
         const paginationLinks = Array.isArray(links) ? links : [];
-        const lastPageUrl = paginationLinks.find((link) => link.rel === 'last');
-
-        setTotalPages(
-          lastPageUrl ? extractParamFromUrl('pagina', lastPageUrl.href) || 0 : 0
+        const pagination = getPaginationState(
+          paginationLinks,
+          params.pagina || 1
         );
-        updatePagination(paginationLinks);
+
+        setFirstPage(pagination.firstPage);
+        setLastPage(pagination.lastPage);
+        setTotalPages(pagination.totalPages);
       } catch (requestError) {
         if (!controller.signal.aborted) {
           setError(requestError);

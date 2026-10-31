@@ -45,10 +45,17 @@ const Despesas = ({ id }) => {
         const lastUrl = Array.isArray(links)
           ? links.find((link) => link.rel === 'last')
           : null;
+        const nextUrl = Array.isArray(links)
+          ? links.find((link) => link.rel === 'next')
+          : null;
 
-        if (lastUrl) {
-          setTotalPages(extractParamFromUrl('pagina', lastUrl.href) || 1);
-        }
+        const lastPage = lastUrl
+          ? extractParamFromUrl('pagina', lastUrl.href)
+          : nextUrl
+            ? currentPage + 1
+            : currentPage;
+
+        setTotalPages(Math.max(lastPage || 1, currentPage));
         setDespesas(dados);
       } catch (requestError) {
         if (!controller.signal.aborted) {
